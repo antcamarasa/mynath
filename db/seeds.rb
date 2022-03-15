@@ -8,7 +8,7 @@
 
 require "open-uri"
 
-Appoinement.destroy_all
+Appointment.destroy_all
 User.destroy_all
 
 file = URI.open('https://images.unsplash.com/photo-1595956553066-fe24a8c33395?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')
@@ -19,7 +19,7 @@ new_user = User.create!(first_name: "Fernand",
                         therapist: false,
                         weight: "67",
                         height: "170",
-                        birthday: "1995-06-19"
+                        birthday: "1995-06-19",
                         phone_number: "0667049192"
                       )
 new_user.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
