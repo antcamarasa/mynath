@@ -8,6 +8,10 @@ class PrescriptionsController < ApplicationController
     render :index
   end
 
+  def index
+    @prescriptions = Prescription.all
+  end
+
   # GET /prescriptions/1
   def show
   end
