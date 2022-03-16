@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require "open-uri"
+require 'date'
 
 Appointment.destroy_all
 User.destroy_all
@@ -19,7 +20,7 @@ new_user = User.create!(first_name: "Fernand",
                         therapist: false,
                         weight: "67",
                         height: "170",
-                        birthday: "1995-06-19",
+                        birthday_date: "1995-06-19",
                         phone_number: "0667049192"
                       )
 new_user.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
@@ -35,7 +36,7 @@ new_therapist = User.create!(first_name: "Geraldine",
                       )
 new_user.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 
-new_appointment = Appointment.create!(date: DateTime.new(2022,04,20,8,37,48,"+04:00"),
+new_appointment = Appointment.create!(date_time: DateTime.new(2022, 4, 11, 10, 0, 0),
                                       therapist: new_therapist,
                                       user: new_user
 )
