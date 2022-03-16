@@ -39,3 +39,4 @@ new_appointment = Appointment.create!(date: DateTime.new(2022,04,20,8,37,48,"+04
                                       therapist: new_therapist,
                                       user: new_user
 )
+
