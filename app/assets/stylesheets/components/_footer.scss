@@ -1,5 +1,5 @@
 .footer-card {
-  display: inline-block;
+  //display: inline-block;
   background-color: $vert;
   border-radius: 20px;
   color: white;
@@ -9,4 +9,7 @@
   width: 300px;
   margin: 5px;
   text-decoration: none;
+  position: sticky;
+  bottom: 0px;
+  z-index: 1;
 }

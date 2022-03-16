@@ -22,7 +22,9 @@
   <body>
     <%= render 'shared/flashes' %>
     <%= render 'shared/navbar' %>
-    <%= yield %>
+    <div class="container" style="height: 80vh;">
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
   </body>
 </html>
