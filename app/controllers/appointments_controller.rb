@@ -19,11 +19,10 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @appointment = Appointment.find(params[:appointment_id])
+    @therapist = User.find(params[:therapist_id])
     @appointment = Appointment.new(appointment_params)
-    #@appointment ...
-
-    @appointment.user = current_user
+    #@appointment.date = Date.today
+    @user = current_user
 
     if @appointment.save
       redirect_to appointments_path
@@ -46,7 +45,7 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
-    redirect_to consultations_path
+    redirect_to appointments_path
   end
 
 private
