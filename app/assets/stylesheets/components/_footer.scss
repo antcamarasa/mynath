@@ -1,0 +1,15 @@
+.footer-card {
+  //display: inline-block;
+  background-color: $vert;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  padding: 12px;
+  width: 300px;
+  margin: 5px;
+  text-decoration: none;
+  position: sticky;
+  bottom: 0px;
+  z-index: 1;
+}

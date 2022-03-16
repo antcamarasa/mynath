@@ -1,12 +1,33 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
-
 .navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+  // flex-grow: 0;
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.nav-login {
+  display: flex;
+  justify-content: space-between;
+  background-image: url("https://res.cloudinary.com/lewagonss/image/upload/v1647434084/development/navbkgd_asejeq.png");
+  background-size: cover;
+
+
+//   background: rgb(103,194,152);
+// background: linear-gradient(124deg, rgba(103,194,152,0.7441570378151261) 0%, rgba(238,236,236,0.8702074579831933) 100%);
+}
+
+.hello {
+  margin: 16px;
+}
+
+.nav-item {
+  margin: 16px;
+}
+
+.user-name  {
+    font-size: 28px;
+    font-weight: 400;
+    color: #959595;
+
 }
