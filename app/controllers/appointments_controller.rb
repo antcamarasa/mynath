@@ -10,8 +10,6 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new
   end
 
-
-
   def new
     @therapist = User.find(params[:therapist_id])
     @appointment = Appointment.new
@@ -21,7 +19,6 @@ class AppointmentsController < ApplicationController
   def create
     @therapist = User.find(params[:therapist_id])
     @appointment = Appointment.new(appointment_params)
-    #@appointment.date = Date.today
     @user = current_user
 
     if @appointment.save
