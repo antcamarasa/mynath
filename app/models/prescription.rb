@@ -1,3 +1,4 @@
 class Prescription < ApplicationRecord
-  belongs_to :appointments
+  belongs_to :appointment
+  has_one_attached :document
 end
