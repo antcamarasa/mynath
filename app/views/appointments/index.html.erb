@@ -1,16 +1,21 @@
-<h1>Vos consultations</h1>
 
-//liste des appointments + lien vers les prescriptions
+<div class = "container-form">
+  <h1>Vos consultations</h1>
+  
 
-<% @appointments.each do |appointment| %>
+  <% @appointments.each do |appointment| %>
+  <tr>
 
-    <% if appointment.user_id == current_user.id %>
-    <%= appointment.date %>
-    <% end %>
+      <% if appointment.users_id == current_user.id %>
+      <h4><%= appointment.therapist.last_name %> <%= appointment.therapist.first_name %></h4>
+      <p><%= appointment.therapist.email %></p>
+      <p><%= appointment.therapist.speciality %></p>
+      <p><%= appointment.date_time %></p>
+      <% end %>
+  </tr>
+  <% end %>
 
-<% end %>
-
-<% if @therapist %>
-<% affich = true %>
-
-<%= link_to 'New appointment', appointment_path %>
+  <p class= "button-vert">
+  <%= link_to 'New appointment', new_therapist_appointment_path(:therapist_id) %>
+  </p>
+</div>

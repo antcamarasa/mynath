@@ -1,9 +1,21 @@
-<h1>Votre naturopathe online</h1>
+<div class = "container-form">
 
-//apreçu du RDV + link vers la visio
+  <% if user_signed_in? %>
 
-<h4>Vous avez rendez-vous avec : </h4>
+  <div class="">
+    <h1>Votre naturopathe online</h1>
+    <p>Merci de bien compléter votre formulaire pour que votre naturopathe en sache plus sur vous !</p>
+  </div>
 
 
- <%= render :partial => 'prescriptions' %>
- <%= render :partial => 'feedbacks' %>
+
+
+
+  <h4>Vous avez rendez-vous avec : </h4>
+
+
+  <%= render :partial => 'prescriptions' %>
+  <%= render :partial => 'feedbacks' %>
+  
+
+<div class = "container-form">
