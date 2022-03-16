@@ -1,8 +1,13 @@
 <div class="container">
-  <h1>Mes ordonnances</h4>
-    <% @prescriptions.reverse_each do |prescription| %>
-      <% if prescription.user_id == current_user.id %>
+  <div>
+    <h1>Mes ordonnances</h1>
+  </div>
+  <div>
+      <% @prescriptions.reverse_each do |prescription| %>
+        <% if prescription.user_id == current_user.id %>
+        <% end %>
       <% end %>
-    <% end %>
-
+    <h2><strong><%= prescription.description %></strong></h2>
+    <p><%= prescription.date %></p>
+  </div>
 </div>
