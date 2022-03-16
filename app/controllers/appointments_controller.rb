@@ -7,7 +7,8 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @appointment = Appointment.new
+    @therapist = User.find(params[:therapist_id])
+    #@therapist = @appointment.therapists_id
   end
 
   def new

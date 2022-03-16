@@ -1,13 +1,19 @@
 <div class = "container-form">
-
+  <% if user_signed_in? %>
   <div class = "">
-    <h2>Réservez votre Rendez-vous</h2>
-    <p>c'est ici pour créer un compte et rester connecté(e) avec nous</p>
+    <h2>Réservez votre Rendez-vous avec <%= @therapist.first_name %> </h2>
+    <p>c'est ici pour créer un compte et rester connecté(e) avec nous:</p>
+  <% else %>
+    <%=link_to "Please Log In", new_user_session_path %>
+  <% end %>
   </div>
 
+  <% if @appointment.therapists_id == current_user.id %>
+  <%= render 'form' %>
+  <% end %>
 
-  <form action="/appointments" method="post">
-
-  </form>
+  <p class= "button-vert">
+  <%= link_to 'Your appointment', appointment_path(@appointment.id) %>
+  </p>
 
 </div>
