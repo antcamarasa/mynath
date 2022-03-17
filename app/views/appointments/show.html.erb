@@ -3,7 +3,7 @@
 
   <% if current_user.therapist == true %>
     <%= link_to 'Ajouter une ordonnance', new_appointment_prescription_path(@appointment), class:"button-vert" %>
-    <%# <%= link_to 'Ajouter un feedback', new_appointment_feedback(@appointment), class:"button-vert" %>
+    <%# <%= link_to 'Ajouter un feedback', appointment_feedbacks(@appointment), class:"button-vert" %>
   <% else %>
     <% if Date.today < @appointment.date_time %>
       <h4>Recap' de votre rendez-vous du <%= @appointment.date_time %> avec <%= @therapist.first_name %> <%= @therapist.last_name %></h4>
