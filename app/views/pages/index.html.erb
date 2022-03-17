@@ -1,0 +1,28 @@
+
+ <div class="text-end"> <h4>Votre recherche : <span class="query">"<%= params[:query] %>"</span></h4>
+  </div>
+ <% @results.each do |therapist|%>
+        <div class="container-index-therapist">
+          <div class="therapist-card-index justify-content-between-index">
+            <div class="card-product-index">
+              <div class=""><%= cl_image_tag therapist.photo.key, crop: :fill %></div>
+                <div class="card-product-infos text-end">
+                <h2 class="h2-card-therapist">
+                  <strong><%= therapist.first_name%></strong>
+                  <%= therapist.last_name%>
+                </h2>
+                <h4 class="h4-card-therapist">
+                  <%= therapist.speciality %>
+                </h4>
+                <p class = "">
+                <% if user_signed_in?%>
+                  <%= link_to 'Prendre un Rendez-Vous', new_therapist_appointment_path(therapist), class:"form-button btn" %>
+                <% end %>
+                </p>
+                </span>
+              </div>
+              </div>
+          </div>
+        </div>
+
+    <% end %>

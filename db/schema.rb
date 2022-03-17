@@ -96,6 +96,9 @@ ActiveRecord::Schema.define(version: 2022_03_17_090033) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "appointments", "users", column: "therapists_id"
   add_foreign_key "appointments", "users", column: "users_id"
+<<<<<<< HEAD
   add_foreign_key "feedbacks", "appointments"
+=======
+>>>>>>> master
   add_foreign_key "prescriptions", "appointments"
 end
