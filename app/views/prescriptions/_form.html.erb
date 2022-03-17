@@ -2,9 +2,9 @@
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="container mt-5 background text-center">
+  <div class="container-form-prescription background text-center">
     <div>
-      <h4>Votre ordonnance</h4>
+      <h5>Votre ordonnance</h5>
     </div>
     <div class="form-inputs">
       <%= f.input :description, label: 'Ajouter une description'  %>
@@ -12,10 +12,10 @@
     </div>
     <div>
       <div>
-      <%= link_to 'Back', prescriptions_path, class:"button-vert" %>
+      <%= link_to 'Retour', prescriptions_path, class:"button-vert" %>
       </div>
       <div class="form-actions">
-        <%= f.button :submit, class: "button-vert" %>
+        <%= f.button :submit, class: "button-vert", value: "Créer" %>
       </div>
     </div>
   </div>
