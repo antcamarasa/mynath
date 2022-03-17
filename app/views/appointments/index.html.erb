@@ -1,20 +1,24 @@
 
 <div class = "container-form">
-  <h1>Vos consultations</h1>
+  <h1 class="mb-3">Vos consultations</h1>
 
 
   <% @appointments.each do |appointment| %>
   <tr>
 
       <% if appointment.users_id == current_user.id %>
-      <h4><%= appointment.therapist.last_name %> <%= appointment.therapist.first_name %></h4>
-      <p><%= appointment.therapist.email %></p>
-      <p><%= appointment.therapist.speciality %></p>
-      <p><%= appointment.date_time %></p>
-      <% end %>
+    <div class="d-flex">
+      <div class="d-flex mt-1 listing">
+        <h4><%= appointment.therapist.last_name %> <%= appointment.therapist.first_name %></h4>
+        <p class="listing-elements"><%= appointment.therapist.email %></p>
+        <p class="listing-elements"><%= appointment.therapist.speciality %></p>
+        <p class="listing-elements"><%= appointment.date_time %></p>
+        <% end %>
+      </div>
+    </div>
   </tr>
   <p class= "button-vert">
-  <%= link_to 'New appointment', new_therapist_appointment_path(appointment.therapist) %>
+  <%= link_to 'Prendre un Rendez-Vous', new_therapist_appointment_path(appointment.therapist) %>
   </p>
 
   <% end %>
