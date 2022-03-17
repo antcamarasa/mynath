@@ -6,3 +6,82 @@
   border-radius: 10px;
   box-shadow: rgba(224, 217, 217, 0.24) 0px 3px 8px;
 }
+
+
+.text-decoration-none {
+  text-decoration: none;
+}
+
+
+.container-index-therapist {
+  width: 95%;
+}
+
+.justify-content-between-index {
+  justify-content: space-between !important;
+}
+
+.card-product-index {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0px 0px 20px -4px rgba(70,70,70,0.86);
+  display: flex;
+  justify-content: space-around;
+  margin-top: 16px;
+  border-radius: 10px;
+
+  & img {
+    height: 150px;
+    width: 150px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    padding-left: 16px;
+    background-size: cover;
+    border: 5px solid transparent;
+  }
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.text-end {
+  text-align: left !important;
+}
+
+
+.h2-card-therapist {
+  font-size: 28px;
+  font-weight: 700;
+  color: $vert;
+  margin: 0;
+  padding: 0;
+}
+
+.h4-card-therapist {
+  font-size: 14px;
+  font-weight: 700;
+  color: $bleu;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.form-button {
+  display: inline-block;
+  background-color: $vert;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  font-size: 10px;
+  padding: 6px;
+  // width: 100px;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.query {
+  font-size: 14px;
+  font-weight: 700;
+  color: $gris;
+  text-transform: uppercase;
+}
