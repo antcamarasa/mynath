@@ -1,0 +1,19 @@
+<div class = "container-form">
+  <% if user_signed_in? %>
+  <div class = "">
+    <h2>Réservez votre Rendez-vous avec <%= @therapist.first_name %> </h2>
+    <p>c'est ici pour créer un compte et rester connecté(e) avec nous:</p>
+  <% else %>
+    <%=link_to "Please Log In", new_user_session_path %>
+  <% end %>
+  </div>
+
+
+  <%= render 'form' %>
+ 
+
+  <p class= "button-vert">
+
+  </p>
+
+</div>

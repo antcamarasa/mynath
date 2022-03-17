@@ -1,1 +1,24 @@
-<h1>Votre naturopathe online</h1>
+<div class = "container-form">
+
+  <% if user_signed_in? %>
+
+  <div class="">
+    <h2>Votre naturopathe online</h2>
+    <p>Complétez votre formulaire pour que votre naturopathe en sache plus sur vous !</p>
+    <%= link_to "Please Log In", new_user_session_path %>
+  </div>
+
+  <h4>Vous avez rendez-vous avec <%= @therapist.first_name %> le <%= @appointment.date_time %></h4>
+
+
+
+  <p class= "button-vert">
+  <%= link_to 'modifier et/ou annuler votre rendez-vous' %>
+  </p>
+
+  <p class= "button-vert">
+    <%= link_to 'Votre consultation en vidéo' %>
+  </p>
+  <% end %>
+
+</div>
