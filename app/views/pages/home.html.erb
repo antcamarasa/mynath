@@ -4,6 +4,14 @@
       <h5>Reserver une consultation avec votre therapeute :</h5>
     </div>
     <div class="card-appointment-search">
+      <%= form_tag therapists_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a therapist"
+        %>
+        <%= submit_tag "Search", class: "button-vert-search"%>
+        <% end %>
     </div>
   </div>
 </div>

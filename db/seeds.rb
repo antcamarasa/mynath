@@ -49,7 +49,7 @@ file = URI.open('https://www.researchgate.net/profile/Sandra-Benavides/publicati
 new_prescription.document.attach(io: file, filename: 'prescription.png', content_type: 'document/webp')
 
 
-file = URI.open('https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60')
+file = URI.open('https://images.unsplash.com/photo-1568923066121-fb6216cf26f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')
 new_therapist_1 = User.create!(first_name: "Gerard",
                         last_name: "Louis",
                         email: "gerard@gmail.com",
@@ -59,7 +59,7 @@ new_therapist_1 = User.create!(first_name: "Gerard",
                       )
 new_therapist_1.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 
-file = URI.open('https://images.unsplash.com/photo-1568923066121-fb6216cf26f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')
+file = URI.open('https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1268&q=80')
 new_therapist_2 = User.create!(first_name: "Souraya",
                         last_name: "Chenai",
                         email: "souraya@gmail.com",
