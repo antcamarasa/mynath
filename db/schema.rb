@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_15_104914) do
+ActiveRecord::Schema.define(version: 2022_03_17_090033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 2022_03_15_104914) do
     t.index ["users_id"], name: "index_appointments_on_users_id"
   end
 
+  create_table "feedbacks", force: :cascade do |t|
+    t.text "review_patient"
+    t.text "review_therapist"
+    t.bigint "appointment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "date_time", default: "2022-03-17 12:54:12"
+    t.index ["appointment_id"], name: "index_feedbacks_on_appointment_id"
+  end
+
   create_table "prescriptions", force: :cascade do |t|
     t.text "description"
     t.date "date"
@@ -86,5 +96,6 @@ ActiveRecord::Schema.define(version: 2022_03_15_104914) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "appointments", "users", column: "therapists_id"
   add_foreign_key "appointments", "users", column: "users_id"
+  add_foreign_key "feedbacks", "appointments"
   add_foreign_key "prescriptions", "appointments"
 end
