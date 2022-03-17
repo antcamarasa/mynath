@@ -1,6 +1,6 @@
 class FeedbacksController < ApplicationController
   before_action :set_feedback, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: :index
+  # skip_before_action :authenticate_user!, only: :index
 
 
   # GET /feedbacks for appointment_id

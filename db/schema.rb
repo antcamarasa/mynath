@@ -59,17 +59,17 @@ ActiveRecord::Schema.define(version: 2022_03_17_090033) do
     t.bigint "appointment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "date_time", default: "2022-03-17 09:21:18"
+    t.datetime "date_time", default: "2022-03-17 12:54:12"
     t.index ["appointment_id"], name: "index_feedbacks_on_appointment_id"
   end
 
   create_table "prescriptions", force: :cascade do |t|
     t.text "description"
     t.date "date"
-    t.bigint "appointments_id", null: false
+    t.bigint "appointment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["appointments_id"], name: "index_prescriptions_on_appointments_id"
+    t.index ["appointment_id"], name: "index_prescriptions_on_appointment_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -97,5 +97,5 @@ ActiveRecord::Schema.define(version: 2022_03_17_090033) do
   add_foreign_key "appointments", "users", column: "therapists_id"
   add_foreign_key "appointments", "users", column: "users_id"
   add_foreign_key "feedbacks", "appointments"
-  add_foreign_key "prescriptions", "appointments", column: "appointments_id"
+  add_foreign_key "prescriptions", "appointments"
 end
