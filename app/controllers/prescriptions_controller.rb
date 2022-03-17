@@ -37,7 +37,7 @@ class PrescriptionsController < ApplicationController
     @prescription.appointment_id = @appointment.id
     @prescription.date = Date.today
     if @prescription.save
-      redirect_to appointment_path(@appointment.id), notice: 'Ordonnance bien créée !'
+      redirect_to therapist_appointment_path(id: @appointment.id, therapist_id: @appointment.therapist.id), notice: 'Ordonnance bien créée !'
     else
       render :new
     end
