@@ -16,7 +16,7 @@
                 </h4>
                 <p class = "">
                 <% if user_signed_in?%>
-                  <%= link_to 'Prendre un Rendez-Vous', new_therapist_appointment_path(appointment.therapist), class:"form-button btn" %>
+                  <%= link_to 'Prendre un Rendez-Vous', new_therapist_appointment_path(therapist), class:"form-button btn" %>
                 <% end %>
                 </p>
                 </span>
