@@ -1,13 +1,23 @@
-<div class="container">
-  <div>
-    <h1>Mes ordonnances</h1>
+<div class="container mt-5 text-center">
+  <div >
+    <h1 class="mb-3">Mes ordonnances</h1>
   </div>
   <div>
       <% @prescriptions.reverse_each do |prescription| %>
-        <% if prescription.user_id == current_user.id %>
+        <% if prescription.appointment.users_id == current_user.id %>
+      <div class="d-flex">
+        <div class="d-flex mt-1 listing">
+          <h4 class="listing-elements"><%= prescription.description %></h4>
+          <p class="listing-elements"><%= prescription.appointment.therapist.first_name %> <%= prescription.appointment.therapist.last_name %></p>
+          <p class="listing-elements">• <%= prescription.date %> •</p>
+          <div class="listing-elements" >
+            <%= link_to rails_blob_path(prescription.document, disposition: "attachment") do %>
+            <i class="fa-solid fa-download fa-download-color-vert fa-lg"></i>
+            <% end %>
+          </div>
+        </div>
+       </div>
         <% end %>
       <% end %>
-    <h2><strong><%= prescription.description %></strong></h2>
-    <p><%= prescription.date %></p>
   </div>
 </div>
