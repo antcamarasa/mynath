@@ -1,5 +1,5 @@
 class PrescriptionsController < ApplicationController
-  before_action :set_prescription, only: [:new, :create, :edit, :update]
+  before_action :set_prescription, only: [:edit, :update]
 
   # GET prescriptions for current user
   def user_prescriptions
@@ -10,15 +10,20 @@ class PrescriptionsController < ApplicationController
 
   def index
     @prescriptions = Prescription.all
+    # Cloudinary::Utils.private_download_url self.cloudinary_id, self.format, attachment: true
   end
 
-  # GET /prescriptions/1
-  def show
-  end
+  # # GET /prescriptions/1
+  # def show
+  # end
 
   # GET /prescriptions/new
   def new
-    @prescription = Prescription.new
+    if current_user.therapist?
+      @prescription = Prescription.new
+      @appointment = Appointment.find(params[:appointment_id])
+    else "Vous ne pouvez-pas créer d'ordonnance"
+    end
   end
 
   # GET /beaches/1/edit
@@ -27,10 +32,12 @@ class PrescriptionsController < ApplicationController
 
   # POST /beaches
   def create
+    @appointment = Appointment.find(params[:appointment_id])
     @prescription = Prescription.new(prescription_params)
-    @prescription.user = current_user
+    @prescription.appointment_id = @appointment.id
+    @prescription.date = Date.today
     if @prescription.save
-      redirect_to @prescription, notice: 'Ordonnance bien créée !'
+      redirect_to appointment_path(@appointment.id), notice: 'Ordonnance bien créée !'
     else
       render :new
     end
@@ -39,7 +46,7 @@ class PrescriptionsController < ApplicationController
   # PATCH/PUT /prescriptions/1
   def update
     if @prescription.update(prescription_params)
-      redirect_to @prescription, notice: 'Votre ordonnance est mise à jour !'
+      redirect_to appointment_path(@appointment.id), notice: 'Votre ordonnance est mise à jour !'
     else
       render :edit
     end
@@ -58,6 +65,6 @@ class PrescriptionsController < ApplicationController
   end
 
   def prescription_params
-    params.require(:prescription).permit(:description, :date)
+    params.require(:prescription).permit(:description, :date, :document)
   end
 end

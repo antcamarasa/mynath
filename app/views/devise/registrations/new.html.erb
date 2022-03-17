@@ -4,7 +4,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs container-form">
-  <h2>S'inscrire</h2>
+    <h2>S'inscrire</h2>
 
     <%= f.input :first_name, :label => "Prénom",
                 required: true,
@@ -39,9 +39,14 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+
     <div class="form-actions d-flex justify-content-between">
+    <div>
       <%= f.button :submit, "Inscription", class: "button-vert" %>
+    </div>
+    <div>
       <%= render "devise/shared/links" %>
+    </div>
     </div>
   </div>
 <% end %>
