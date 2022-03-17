@@ -2,7 +2,6 @@
  <div class="text-end"> <h4>Votre recherche : <span class="query">"<%= params[:query] %>"</span></h4>
   </div>
  <% @results.each do |therapist|%>
-      <%= link_to  new_therapist_appointment_path(appointment.therapist), class: "text-decoration-none" do %>
         <div class="container-index-therapist">
           <div class="therapist-card-index justify-content-between-index">
             <div class="card-product-index">
@@ -17,7 +16,7 @@
                 </h4>
                 <p class = "">
                 <% if user_signed_in?%>
-                  <%= link_to 'Reserveration', therapists_path(therapist), class:"form-button btn" %>
+                  <%= link_to 'Prendre un Rendez-Vous', new_therapist_appointment_path(appointment.therapist), class:"form-button btn" %>
                 <% end %>
                 </p>
                 </span>
@@ -25,5 +24,5 @@
               </div>
           </div>
         </div>
-      <% end %>
+
     <% end %>
