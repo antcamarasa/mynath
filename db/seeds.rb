@@ -41,6 +41,13 @@ new_appointment = Appointment.create!(date_time: DateTime.new(2022, 4, 11, 10, 0
                                       user: new_user
 )
 
+new_prescription = Prescription.create!(description: "Mal de tête",
+                                        date: new_appointment.date_time,
+                                        appointment: new_appointment
+)
+file = URI.open('https://www.researchgate.net/profile/Sandra-Benavides/publication/228331607/figure/fig4/AS:667613038387209@1536182760366/Indicate-why-the-prescription-is-not-appropriate-as-written.png')
+new_prescription.document.attach(io: file, filename: 'prescription.png', content_type: 'document/webp')
+
 
 file = URI.open('https://images.unsplash.com/photo-1568923066121-fb6216cf26f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')
 new_therapist_1 = User.create!(first_name: "Gerard",
