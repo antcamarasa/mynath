@@ -1,0 +1,17 @@
+<%= simple_form_for([@therapist, Appointment.new]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :date_time, label: 'Votre créneau'  %>
+  </div>
+
+  <div class="">
+    <%= link_to 'Back', appointments_path, class:"button-vert" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class:"button-vert" %>
+  </div>
+  
+<% end %>
