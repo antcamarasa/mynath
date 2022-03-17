@@ -1,24 +1,20 @@
-<div class = "container-form">
+<div>
+    <h2>Votre rendez-vous !</h2>
 
-  <% if user_signed_in? %>
-
-  <div class="">
-    <h2>Votre naturopathe online</h2>
-    <p>Complétez votre formulaire pour que votre naturopathe en sache plus sur vous !</p>
-    <%= link_to "Please Log In", new_user_session_path %>
-  </div>
-
-  <h4>Vous avez rendez-vous avec <%= @therapist.first_name %> le <%= @appointment.date_time %></h4>
-
-
-
-  <p class= "button-vert">
-  <%= link_to 'modifier et/ou annuler votre rendez-vous' %>
-  </p>
-
-  <p class= "button-vert">
-    <%= link_to 'Votre consultation en vidéo' %>
-  </p>
+  <% if current_user.therapist == true %>
+    <%= link_to 'Ajouter une ordonnance', new_appointment_prescription_path(@appointment), class:"button-vert" %>
+    <%# <%= link_to 'Ajouter un feedback', new_appointment_feedback(@appointment), class:"button-vert" %>
+  <% else %>
+    <% if Date.today < @appointment.date_time %>
+      <h4>Recap' de votre rendez-vous du <%= @appointment.date_time %> avec <%= @therapist.first_name %> <%= @therapist.last_name %></h4>
+    <% else %>
+     <h4>Vous pourrez assistez à votre rendez-vous du <%= @appointment.date_time %> avec <%= @therapist.first_name %> <%= @therapist.last_name %> en cliquant ci-dessous :</h4>
+        <p class= "button-vert">
+          <%= link_to 'Votre consultation en vidéo', root_path %>
+          </p>
+          <p class= "button-vert">
+         <%= link_to 'Modifier et/ou annuler votre rendez-vous', root_path %>
+        </p>
+    <% end %>
   <% end %>
-
 </div>
