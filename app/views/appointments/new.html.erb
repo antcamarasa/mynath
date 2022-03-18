@@ -1,8 +1,8 @@
-<div class = "container-form">
+<div class="container mt-5 text-center">
   <% if user_signed_in? %>
   <div class = "">
     <h2>Réservez votre Rendez-vous avec <%= @therapist.first_name %> </h2>
-    <p>c'est ici pour créer un compte et rester connecté(e) avec nous:</p>
+    <p></p>
   <% else %>
     <%=link_to "Please Log In", new_user_session_path %>
   <% end %>
@@ -10,10 +10,8 @@
 
 
   <%= render 'form' %>
- 
 
-  <p class= "button-vert">
 
-  </p>
+
 
 </div>
