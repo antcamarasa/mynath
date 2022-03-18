@@ -14,3 +14,16 @@
   color: white;
   width: 70px;
 }
+
+.button-vert-rdv{
+  display: inline-block;
+  background-color: $vert;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  padding: 6px 25px;
+  margin: 10px;
+  text-decoration: none;
+  justify-content: center;
+}
