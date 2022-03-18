@@ -1,4 +1,4 @@
-<h2> Modifier mon profil : <% resource_name.to_s.humanize %> </h2> 
+<h2> Modifier mon profil : <% resource_name.to_s.humanize %> </h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -31,13 +31,20 @@
     <%= f.input :height, :label => "Taille",
                 autofocus: true,
                 input_html: { autocomplete: "height" }%>
+    <%= f.input :photo, as: :file %>
+     <%= f.input :password,
+                required: true,
+                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation,
+                required: true,
+                input_html: { autocomplete: "new-password" } %>
 </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Mettre à jour" %>
+    <%= f.button :submit, "Mettre à jour", class: "btn button-vert-search"%>
   </div>
 <% end %>
 
-<h3>Supprimer mon compte :</h3>
-<p> Pas content ? <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûr ?" }, method: :delete, class: "btn button-vert-search" %></p>
+<p> Pas content ? <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûr ?" }, method: :delete, class: "btn btn-sucess" %></p>
 <%= link_to "Retour", :back %>
