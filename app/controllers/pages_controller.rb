@@ -10,4 +10,9 @@ class PagesController < ApplicationController
     @therapists = User.where(therapist: true)
     @results = @therapists.search_by_name_and_speciality(params[:query])
   end
+
+  def visio
+    @appointment = Appointment.find(params[:appointment_id])
+    @therapist = @appointment.therapist
+  end
 end
