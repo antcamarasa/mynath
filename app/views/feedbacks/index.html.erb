@@ -16,7 +16,7 @@
             <% if  feedback.review_patient %>
               <div class="mt-1 listing-gris">
                 <div class = "d-flex justify-content-around">
-                  <h4><strong><%= feedback.date_time %></strong></h4>
+                  <h4><strong><%= feedback.date_time.strftime("%d/%m/%Y") %></strong></h4>
                   <div class ="d-flex">
                     <h4><%= @appointment.user.first_name %>&nbsp;</h4>
                     <h4><%= @appointment.user.last_name %></h4>
@@ -29,7 +29,7 @@
             <% if  feedback.review_therapist %>
               <div class="mt-1 listing-vert">
                 <div class = "d-flex justify-content-around">
-                  <h4><strong><%= feedback.date_time %></strong></h4>
+                  <h4><strong><%= feedback.date_time.strftime("%d/%m/%Y") %></strong></h4>
                   <div class ="d-flex">
                     <h4><%= @appointment.therapist.first_name  %>&nbsp;</h4>
                     <span>
