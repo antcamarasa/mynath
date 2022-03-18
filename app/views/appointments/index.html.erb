@@ -1,25 +1,23 @@
 
-<div class = "container-form">
+<div class="container mt-5 text-center">
   <h1 class="mb-3">Vos consultations</h1>
 
 
-  <% @appointments.each do |appointment| %>
-  <tr>
+  <% @appointments.reverse_each do |appointment| %>
+
 
       <% if appointment.users_id == current_user.id %>
-    <div class="d-flex">
-      <div class="d-flex mt-1 listing">
-        <h4><%= appointment.therapist.last_name %> <%= appointment.therapist.first_name %></h4>
-        <p class="listing-elements"><%= appointment.therapist.email %></p>
-        <p class="listing-elements"><%= appointment.therapist.speciality %></p>
-        <p class="listing-elements"><%= appointment.date_time %></p>
+      <%= link_to therapist_appointment_path(therapist_id: appointment.therapist.id, id: appointment.id), class: "text-decoration-none" do %>
+        <div class="d-flex">
+          <div class="d-flex mt-1 listing">
+          <h4 class="listing-elements"><%= appointment.therapist.last_name %> <%= appointment.therapist.first_name %></h4>
+          <p class="listing-elements"><%= appointment.therapist.speciality %></p>
+          <p class="listing-elements"><%= appointment.date_time.strftime("%d/%m/%y") %> <%= appointment.date_time.strftime("à %I:%M %p") %></p>
+          </div>
+        </div>
         <% end %>
-      </div>
-    </div>
-  </tr>
-  <p class= "button-vert">
-  <%= link_to 'Prendre un Rendez-Vous', new_therapist_appointment_path(appointment.therapist) %>
-  </p>
+      <% end %>
+
 
   <% end %>
 
