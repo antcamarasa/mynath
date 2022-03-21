@@ -1,6 +1,6 @@
 <div>
 <%= simple_form_for ([@therapist, @appointment]), url: therapist_appointments_path, method: :post do |f| %>
-  <%= f.text_field :date_time %>
+  <%= f.date_field :date_time %>
 <%= f.button :submit, value: "Prendre votre RDV", class: "button-vert" %>
 <% end %>
 </div>
