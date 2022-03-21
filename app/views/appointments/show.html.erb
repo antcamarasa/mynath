@@ -11,20 +11,21 @@
       <% if DateTime.now > @appointment.date_time %>
       <h4>Vous pourrez assistez à votre rendez-vous du <%= @appointment.date_time.strftime("%d/%m/%Y") %> avec <%= @therapist.first_name %> <%= @therapist.last_name %> en cliquant ci-dessous :</h4>
       <br>
-      <%= link_to 'Votre consultation en vidéo', appointment_visio_path(@appointment), class:"button-vert" %>
-      <%= link_to 'Modifier et/ou annuler votre rendez-vous', root_path, class:"button-vert" %>
-      <br>
-      <br>
+
       <h4>Votre rendez-vous du <br> <%= @appointment.date_time.strftime("%d/%m/%Y")%> à <%= @appointment.date_time.strftime("%I:%M%p")%> <br> avec <%= @therapist.first_name %> <%= @therapist.last_name %></h4>
       <br>
       <%= link_to 'Les ordonnances', prescriptions_path(@appointment), class:"button-vert" %>
       <%= link_to 'Les feedbacks', appointment_feedbacks_path(@appointment), class:"button-vert" %>
 
       <% else %>
-      <h4>Vous pourrez assistez à votre rendez-vous du <%= @appointment.date_time.strftime("%d/%m/%Y") %> avec <%= @therapist.first_name %> <%= @therapist.last_name %> en cliquant ci-dessous :</h4>
-      <br>
+          <h4>Vous pourrez assistez à votre rendez-vous du <%= @appointment.date_time.strftime("%d/%m/%Y") %> avec <%= @therapist.first_name %> <%= @therapist.last_name %> en cliquant ci-dessous :</h4>
+          <br>
           <%= link_to 'Votre consultation en vidéo', appointment_visio_path(@appointment), class:"button-vert" %>
-          <%= link_to 'Modifier et/ou annuler votre rendez-vous', root_path, class:"button-vert" %>
+
+          <br>
+          <br>
+          <%= link_to 'Modifier votre rendez-vous',  edit_appointment_path(@appointment), class:"button-vert" %>
+          <%= link_to 'Annuler votre rendez-vous',  therapist_appointment_delete_path(therapist_id: @appointment.therapist.id, id: @appointment.id), class:"button-vert", method: :delete, remote: true %>
       <% end %>
     </div>
   <% end %>

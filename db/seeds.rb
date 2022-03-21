@@ -36,11 +36,14 @@ new_therapist = User.create!(first_name: "Louis",
                       )
 new_therapist.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 
-new_appointment = Appointment.create!(date_time: DateTime.new(2022, 4, 11, 10, 0, 0),
+new_appointment = Appointment.create!(date_time: DateTime.new(2022, 4, 11, 10, 0),
                                       therapist: new_therapist,
                                       user: new_user
 )
-
+new_appointment = Appointment.create!(date_time: DateTime.httpdate('Sat, 03 Feb 2020 04:05:06 GMT'),
+                                      therapist: new_therapist,
+                                      user: new_user
+)
 new_prescription = Prescription.create!(description: "Mal de tête",
                                         date: new_appointment.date_time,
                                         appointment: new_appointment
