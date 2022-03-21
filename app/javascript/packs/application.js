@@ -7,10 +7,10 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import 'stylesheets/application'
+// import 'stylesheets/application'
 
 // Import style for flatpickr
-require("flatpickr/dist/flatpickr.css")
+// require("flatpickr/dist/flatpickr.css")
 
 Rails.start()
 Turbolinks.start()
@@ -28,7 +28,7 @@ const context = require.context('../controllers', true, /\.js$/)
 application.load(definitionsFromContext(context))
 
 // import Flatpickr
-import Flatpickr from 'stimulus-flatpickr'
+// import Flatpickr from 'stimulus-flatpickr'
 
 // Manually register Flatpickr as a stimulus controller
-application.register('flatpickr', Flatpickr)
+// application.register('flatpickr', Flatpickr)
