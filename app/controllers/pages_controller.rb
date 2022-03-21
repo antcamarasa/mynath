@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     # @therapists = User.where(therapist: true)
     # @results = @therapists.search_by_name_and_speciality(params[:query])
     # @a = Appointment.select(:user_id => current_user).distinct#.where(therapists_id: User.therapists_id)
+    @therapists = User.where(therapist: true)
     @appointments = Appointment.where(:users_id => current_user)
     @appointment_uniq = @appointments.uniq(&:therapists_id)
   end
