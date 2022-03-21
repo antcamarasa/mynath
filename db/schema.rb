@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2022_03_21_051209) do
     t.bigint "appointment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "date_time", default: "2022-03-18 06:31:54"
+    t.datetime "date_time", default: "2022-03-17 12:54:12"
     t.index ["appointment_id"], name: "index_feedbacks_on_appointment_id"
   end
 
