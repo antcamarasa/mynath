@@ -6,11 +6,20 @@
           <i class="icon fas fa-home"></i>
         <% end %>
       </div>
-      <div>
-        <%= link_to prescriptions_path do %>
-          <i class="icon fas fa-pills"></i>
-        <% end %>
-      </div>
+
+      <% if user_signed_in? && current_user.therapist == true %>
+          <div>
+            <%= link_to patients_path do %>
+              <i class="icon fas fa-user-injured"></i>
+            <% end %>
+          </div>
+      <% else %>
+          <div>
+            <%= link_to prescriptions_path do %>
+              <i class="icon fas fa-pills"></i>
+            <% end %>
+          </div>
+      <% end %>
       <div>
         <%= link_to appointments_path do %>
           <i class="icon fas fa-calendar-check"></i>

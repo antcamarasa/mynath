@@ -9,6 +9,11 @@ class PagesController < ApplicationController
     @appointment_uniq = @appointments.uniq(&:therapists_id)
   end
 
+  def patients
+    @appointments = Appointment.where(:therapists_id => current_user)
+    @appointment_uniq = @appointments.uniq(&:users_id)
+  end
+
   def index
     @therapists = User.where(therapist: true)
     @results = @therapists.search_by_name_and_speciality(params[:query])
