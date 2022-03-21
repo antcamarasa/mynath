@@ -58,5 +58,4 @@ private
   def appointment_params
     params.require(:appointment).permit(:date_time)
   end
-
 end

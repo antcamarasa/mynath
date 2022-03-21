@@ -10,7 +10,7 @@
           class: "form-control",
           placeholder: "Find a therapist"
         %>
-        <%= submit_tag "Search", class: "button-vert-search"%>
+        <%= submit_tag "Search", class: "button-vert"%>
         <% end %>
     </div>
   </div>
@@ -41,3 +41,8 @@
       </div>
     </div>
   <% end %>
+  
+<% @appointment_uniq.each do |appointment| %>
+  <%= appointment.therapist.first_name %>
+  <%= appointment.therapist.last_name %>
+<% end %>
