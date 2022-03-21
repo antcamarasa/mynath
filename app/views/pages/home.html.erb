@@ -1,34 +1,55 @@
 <div class="container">
-  <div class="card-appointment">
-    <div class="card-appointment-text">
-      <h5>Reserver une consultation avec votre therapeute :</h5>
-    </div>
-    <div class="card-appointment-search">
-      <%= form_tag therapists_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a therapist"
-        %>
-        <%= submit_tag "Search", class: "button-vert"%>
-        <% end %>
-    </div>
-  </div>
-</div>
-
-<% if user_signed_in? %>
-   <div class="container">
-      <div class="container-presentation">
-        <h4>My Nath: <br> au service de votre santé</h4>
-        <%= image_tag"https://res.cloudinary.com/lewagonss/image/upload/v1647429802/development/e293c03bd4b367efb62c_pmkdtd.svg" %>
-        <p>Accédez <strong>rapidement</strong> aux disponibilités de tous vos professionnels de santé</p>
-        <%= image_tag"https://res.cloudinary.com/lewagonss/image/upload/v1647429803/development/414f6d548cd8e7420ec2_get5kj.svg" %>
-        <p>Prenez des décisions <strong>éclairées</strong> et adaptées à vos besoins de santé </p>
-        <%= image_tag"https://res.cloudinary.com/lewagonss/image/upload/v1647429803/development/27df8684b01bff357f01_sw6quk.svg" %>
-        <p>Gérez vos <strong>rendez-vous</strong> et <strong>documents</strong> de santé ainsi que ceux de vos proches sur une même application</p>
+    <div class="card-appointment">
+      <div class="card-appointment-text">
+        <h5>Reserver une consultation avec votre therapeute :</h5>
+      </div>
+      <div class="card-appointment-search">
+        <%= form_tag therapists_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a therapist"
+          %>
+          <%= submit_tag "Rechercher", class: "button-vert"%>
+          <% end %>
       </div>
     </div>
-<% else %>
+    <% if user_signed_in? %>
+      <h2 class="h2_favorite_therapists">Mes therapeutes favoris</h2>
+       <div class="container_favorite_therapists">
+      <% @appointment_uniq.each do |appointment| %>
+        <div class="container-index-therapist">
+          <div class="therapist-card-index justify-content-between-index">
+            <div class="card-product-favorite">
+              <div class=""><%= cl_image_tag appointment.therapist.photo.key, crop: :fill %></div>
+                <div class="card-product-infos text-end">
+                  <h2 class="h2-card-therapist">
+                    <strong><%= appointment.therapist.first_name %></strong>
+                    <%= appointment.therapist.last_name %>
+                  </h2>
+                  <h4 class="h4-card-therapist">
+                    <%= appointment.therapist.speciality %>
+                  </h4>
+                  <%= link_to 'Prendre un RDV', new_therapist_appointment_path(appointment.therapist), class:"form-button-favorite_therapists btn" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+</div>
+  <div class="container">
+    <div class="container-presentation">
+      <h4>My Nath: <br> au service de votre santé</h4>
+      <%= image_tag"https://res.cloudinary.com/lewagonss/image/upload/v1647429802/development/e293c03bd4b367efb62c_pmkdtd.svg" %>
+      <p>Accédez <strong>rapidement</strong> aux disponibilités de tous vos professionnels de santé</p>
+      <%= image_tag"https://res.cloudinary.com/lewagonss/image/upload/v1647429803/development/414f6d548cd8e7420ec2_get5kj.svg" %>
+      <p>Prenez des décisions <strong>éclairées</strong> et adaptées à vos besoins de santé </p>
+      <%= image_tag"https://res.cloudinary.com/lewagonss/image/upload/v1647429803/development/27df8684b01bff357f01_sw6quk.svg" %>
+      <p>Gérez vos <strong>rendez-vous</strong> et <strong>documents</strong> de santé ainsi que ceux de vos proches sur une même application</p>
+    </div>
+  </div>
+  <% else %>
     <div class="container">
       <div class="container-presentation">
         <h4>My Nath: <br> au service de votre santé</h4>
@@ -41,8 +62,3 @@
       </div>
     </div>
   <% end %>
-  
-<% @appointment_uniq.each do |appointment| %>
-  <%= appointment.therapist.first_name %>
-  <%= appointment.therapist.last_name %>
-<% end %>
