@@ -1,29 +1,30 @@
 .button-vert{
-  display: inline-block;
+  display: block;
+  width: 100%;
+  border: none;
   background-color: $vert;
+  padding: 10px 19px;
+  font-size: 16px;
+  text-align: center;
   border-radius: 20px;
   color: white;
-  text-align: center;
-  font-size: 12px;
-  padding: 6px;
-  width: 100px;
-  margin: 5px;
-  text-decoration: none;
+  margin-top: 10px;
 }
+
 .icon {
   color: white;
   width: 70px;
 }
 
-.button-vert-rdv{
-  display: inline-block;
-  background-color: $vert;
-  border-radius: 20px;
-  color: white;
-  text-align: center;
-  font-size: 12px;
-  padding: 6px 25px;
-  margin: 10px;
-  text-decoration: none;
-  justify-content: center;
-}
+// .button-vert-rdv{
+//   display: inline-block;
+//   background-color: $vert;
+//   border-radius: 20px;
+//   color: white;
+//   text-align: center;
+//   font-size: 12px;
+//   padding: 6px 25px;
+//   margin: 10px;
+//   text-decoration: none;
+//   justify-content: center;
+// }
