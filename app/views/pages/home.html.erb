@@ -1,43 +1,43 @@
 <div class="container">
-  <div class="card-appointment">
-    <div class="card-appointment-text">
-      <h5>Reserver une consultation avec votre therapeute :</h5>
+    <div class="card-appointment">
+      <div class="card-appointment-text">
+        <h5>Reserver une consultation avec votre therapeute :</h5>
+      </div>
+      <div class="card-appointment-search">
+        <%= form_tag therapists_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a therapist"
+          %>
+          <%= submit_tag "Rechercher", class: "button-vert"%>
+          <% end %>
+      </div>
     </div>
-    <div class="card-appointment-search">
-      <%= form_tag therapists_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a therapist"
-        %>
-        <%= submit_tag "Search", class: "button-vert"%>
-        <% end %>
-    </div>
-  </div>
-</div>
-
-<% if user_signed_in? %>
-  <h2 class="h2_favorite_therapists">Mes praticiens favoris</h2>
-  <% @appointment_uniq.each do |appointment| %>
-    <div class="container-index-therapist">
-      <div class="therapist-card-index justify-content-between-index">
-        <div class="card-product-favorite">
-          <div class=""><%= cl_image_tag appointment.therapist.photo.key, crop: :fill %></div>
-            <div class="card-product-infos text-end">
-              <h2 class="h2-card-therapist">
-                <strong><%= appointment.therapist.first_name %></strong>
-                <%= appointment.therapist.last_name %>
-              </h2>
-              <h4 class="h4-card-therapist">
-                <%= appointment.therapist.speciality %>
-              </h4>
-              <%= link_to 'Prendre un RDV', new_therapist_appointment_path(appointment.therapist), class:"form-button-favorite_therapists btn" %>
+    <% if user_signed_in? %>
+      <h2 class="h2_favorite_therapists">Mes therapeutes favoris</h2>
+       <div class="container_favorite_therapists">
+      <% @appointment_uniq.each do |appointment| %>
+        <div class="container-index-therapist">
+          <div class="therapist-card-index justify-content-between-index">
+            <div class="card-product-favorite">
+              <div class=""><%= cl_image_tag appointment.therapist.photo.key, crop: :fill %></div>
+                <div class="card-product-infos text-end">
+                  <h2 class="h2-card-therapist">
+                    <strong><%= appointment.therapist.first_name %></strong>
+                    <%= appointment.therapist.last_name %>
+                  </h2>
+                  <h4 class="h4-card-therapist">
+                    <%= appointment.therapist.speciality %>
+                  </h4>
+                  <%= link_to 'Prendre un RDV', new_therapist_appointment_path(appointment.therapist), class:"form-button-favorite_therapists btn" %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-  <% end %>
-
+      <% end %>
+</div>
   <div class="container">
     <div class="container-presentation">
       <h4>My Nath: <br> au service de votre santé</h4>
