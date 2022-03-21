@@ -1,2 +1,41 @@
 // Specific CSS for your home-page
 
+.h2_favorite_therapists {
+  margin: 10px;
+  color: #959595;
+  font-weight: 400;
+}
+
+.form-button-favorite_therapists {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: $vert;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 20px;
+  color: white;
+  margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.card-product-favorite {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0px 0px 20px -4px rgba(70,70,70,0.86);
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  border-radius: 10px;
+  padding-right: 10px;
+
+  & img {
+    height: 100%;
+    width: 100px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    padding-left: 16px;
+    background-size: cover;
+    border: 5px solid transparent;
+  }
+}

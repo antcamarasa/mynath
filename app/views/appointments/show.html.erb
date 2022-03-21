@@ -23,7 +23,7 @@
       <% else %>
       <h4>Vous pourrez assistez à votre rendez-vous du <%= @appointment.date_time.strftime("%d/%m/%Y") %> avec <%= @therapist.first_name %> <%= @therapist.last_name %> en cliquant ci-dessous :</h4>
       <br>
-          <%= link_to 'Votre consultation en vidéo', visio_path, class:"button-vert" %>
+          <%= link_to 'Votre consultation en vidéo', appointment_visio_path(@appointment), class:"button-vert" %>
           <%= link_to 'Modifier et/ou annuler votre rendez-vous', root_path, class:"button-vert" %>
       <% end %>
     </div>

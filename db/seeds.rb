@@ -79,8 +79,8 @@ new_therapist_3 = User.create!(first_name: "Natalie",
                       )
 new_therapist_3.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 
-file = URI.open('https://images.unsplash.com/photo-1568923066121-fb6216cf26f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')
-new_therapist_4 = User.create!(first_name: "Josephine",
+file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1647859584/development/naturopathe_xbrz6l.jpg')
+new_therapist_4 = User.create!(first_name: "Lea",
                         last_name: "Amigues",
                         email: "josephine@gmail.com",
                         password: "password",
