@@ -38,7 +38,7 @@ class AppointmentsController < ApplicationController
 
   def update
     if @appointment.update(appointment_params)
-      redirect_to @appointment
+      redirect_to appointments_path, notice: 'Votre RDV est bien Mis à jour.'
     else
       render :edit
     end
@@ -46,7 +46,7 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
-    redirect_to appointments_path
+    redirect_to appointments_path, notice: 'Votre RDV est Annulé.'
   end
 
 private
