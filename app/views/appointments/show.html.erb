@@ -1,31 +1,49 @@
 <div>
-    <h2>Votre rendez-vous, recap'</h2>
-
+<br>
   <% if current_user.therapist == true %>
+    <h2>Votre rendez-vous avec <% @user.first_name %> <%= @user.last_name %> du <%= @appointment.date_time.strftime("%d/%m/%Y")%> à <%= @appointment.date_time.strftime("%I:%M%p")%> </h2>
+  <div>
+  <br>
+    <% if @appointment.prescriptions.any? %>
+      <% @appointment.prescriptions.each do |prescription|%>
+        <h5 class="text-left"> Vos prescriptions : </h5>
+        <div class="d-flex">
+          <div class="d-flex mt-1 listing">
+            <h4 class="listing-elements"><%= prescription.description %></h4>
+              <p class="listing-elements"><%= prescription.appointment.therapist.first_name %> <%= prescription.appointment.therapist.last_name %></p>
+              <p class="listing-elements">• <%= prescription.date %> •</p>
+          <div class="listing-elements" >
+            <%= link_to rails_blob_path(prescription.document, disposition: "attachment") do %>
+            <i class="fa-solid fa-download fa-download-color-vert fa-lg"></i>
+            <% end %>
+          </div>
+        </div>
+       </div>
+        <% end %>
+      <% end %>
+  </div>
     <%= link_to 'Ajouter une ordonnance', new_appointment_prescription_path(@appointment), class:"button-vert" %>
-    <%= link_to 'Ajouter un feedback', appointment_feedbacks(@appointment), class:"button-vert" %>
+    <br>
+    <%= link_to 'Ajouter un feedback', appointment_feedbacks_path(@appointment), class:"button-vert" %>
 
   <% else %>
 
     <div class="card-appointment card-show-appointment">
       <% if DateTime.now > @appointment.date_time %>
-      <h4>Vous pourrez assistez à votre rendez-vous du <%= @appointment.date_time.strftime("%d/%m/%Y") %> avec <%= @therapist.first_name %> <%= @therapist.last_name %> en cliquant ci-dessous :</h4>
-      <br>
-
-      <h4>Votre rendez-vous du <br> <%= @appointment.date_time.strftime("%d/%m/%Y")%> à <%= @appointment.date_time.strftime("%I:%M%p")%> <br> avec <%= @therapist.first_name %> <%= @therapist.last_name %></h4>
-      <br>
-      <%= link_to 'Les ordonnances', prescriptions_path(@appointment), class:"button-vert" %>
-      <%= link_to 'Les feedbacks', appointment_feedbacks_path(@appointment), class:"button-vert" %>
+        <h2>Recap' de votre rendez-vous</h2>
+        <h4 class="p-show-appointment">Votre rendez-vous du <br> <%= @appointment.date_time.strftime("%d/%m/%Y")%> à <%= @appointment.date_time.strftime("%I:%M%p")%> <br> avec <%= @therapist.first_name %> <%= @therapist.last_name %></h4>
+        <br>
+        <%= link_to 'Ordonnances', prescriptions_path(@appointment), class:"button-vert" %>
+        <%= link_to 'Feedbacks', appointment_feedbacks_path(@appointment), class:"button-vert" %>
 
       <% else %>
-          <h4>Vous pourrez assistez à votre rendez-vous du <%= @appointment.date_time.strftime("%d/%m/%Y") %> avec <%= @therapist.first_name %> <%= @therapist.last_name %> en cliquant ci-dessous :</h4>
-          <br>
-          <%= link_to 'Votre consultation en vidéo', appointment_visio_path(@appointment), class:"button-vert" %>
-
-          <br>
-          <br>
-          <%= link_to 'Modifier votre rendez-vous',  edit_appointment_path(@appointment), class:"button-vert" %>
-          <%= link_to 'Annuler votre rendez-vous',  therapist_appointment_delete_path(therapist_id: @appointment.therapist.id, id: @appointment.id), class:"button-vert", method: :delete, remote: true %>
+        <h2>La marche à suivre</h2>
+        <h4 class="p-show-appointment">Vous pourrez assistez à votre rendez-vous du <%= @appointment.date_time.strftime("%d/%m/%Y") %> avec <%= @therapist.first_name %> <%= @therapist.last_name %> en cliquant ci-dessous :</h4>
+         <br>
+         <%= link_to 'Assister à votre consultation', appointment_visio_path(@appointment), class:"button-vert" %>
+         <br>
+         <%= link_to 'Modifier RDV',  edit_appointment_path(@appointment), class:"button-vert" %>
+         <%= link_to 'Annuler RDV',  therapist_appointment_delete_path(therapist_id: @appointment.therapist.id, id: @appointment.id), class:"button-vert", method: :delete, remote: true %>
       <% end %>
     </div>
   <% end %>
