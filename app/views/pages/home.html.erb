@@ -41,3 +41,8 @@
       </div>
     </div>
   <% end %>
+  
+<% @appointment_uniq.each do |appointment| %>
+  <%= appointment.therapist.first_name %>
+  <%= appointment.therapist.last_name %>
+<% end %>
