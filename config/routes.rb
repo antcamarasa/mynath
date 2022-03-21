@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get "therapists", to: 'pages#index'
+  get "patients", to: 'pages#patients'
   # get "visio", to: 'pages#visio'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
    resources :appointments, only: [:index, :edit, :update] do
