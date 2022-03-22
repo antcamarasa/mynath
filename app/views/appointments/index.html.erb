@@ -12,7 +12,7 @@
           <div class="d-flex mt-1 listing">
           <h4 class="listing-elements"><%= appointment.therapist.last_name %> <%= appointment.therapist.first_name %></h4>
           <p class="listing-elements"><%= appointment.therapist.speciality %></p>
-          <p class="listing-elements"><%= appointment.date_time.strftime("%d/%m/%y") %> <%= appointment.date_time.strftime("à %I:%M %p") %></p>
+          <p class="listing-elements"><%= appointment.date_time.strftime("%d/%m/%y") %> <%= appointment.time.strftime("à %I:%M %p") %></p>
           </div>
         </div>
         <% end %>
@@ -24,7 +24,7 @@
             <div class="d-flex mt-1 listing">
               <h4 class="listing-elements"><%= appointment.user.last_name %> <%= appointment.user.first_name %></h4>
               <p class="listing-elements"><%= appointment.user.phone_number %></p>
-              <p class="listing-elements"><%= appointment.date_time.strftime("%d/%m/%y") %> <%= appointment.date_time.strftime("à %I:%M %p") %></p>
+              <p class="listing-elements"><%= appointment.date_time.strftime("%d/%m/%y") %> <%= appointment.time.strftime("à %I:%M %p") %></p>
             </div>
           </div>
         <% end  %>
