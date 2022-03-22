@@ -1,0 +1,12 @@
+
+<div class="container mt-5 text-center">
+  <h1 class="mb-3">Mes patients favoris</h1>
+
+
+  <% @appointment_uniq.each do |appointment| %>
+        <div class="d-flex">
+          <div class="d-flex mt-1 listing">
+          <h4 class="listing-elements"><%= appointment.user.last_name %> <%= appointment.user.first_name %></h4>
+          </div>
+        </div>
+  <% end %>
