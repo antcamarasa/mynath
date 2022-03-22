@@ -16,6 +16,7 @@ class AppointmentsController < ApplicationController
     @therapist = User.find(params[:therapist_id])
     @appointment = Appointment.new
     @user = current_user
+    @timeframe = [[Time.new(2022, 3, 25, 18, 0), "18h00-19h00"], [Time.new(2022, 3, 25, 19, 0), "19h00-20h00"], [Time.new(2022, 3, 26, 10, 0), "10h00-11h00"], [Time.new(2022, 3, 26, 11, 0), "11h00-12h00"]]
   end
 
   def create
@@ -24,7 +25,6 @@ class AppointmentsController < ApplicationController
     @user = current_user
     @appointment.users_id = @user.id
     @appointment.therapists_id = @therapist.id
-
     if @appointment.save
       redirect_to therapist_appointment_path(@therapist, @appointment)
     else
@@ -56,6 +56,6 @@ private
   end
 
   def appointment_params
-    params.require(:appointment).permit(:date_time)
+    params.require(:appointment).permit(:date_time, :time)
   end
 end
