@@ -8,6 +8,7 @@
 
 require "open-uri"
 require 'date'
+require 'time'
 
 Appointment.destroy_all
 User.destroy_all
@@ -37,10 +38,12 @@ new_therapist = User.create!(first_name: "Louis",
 new_therapist.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 
 new_appointment = Appointment.create!(date_time: DateTime.new(2022, 4, 11, 10, 0),
+                                      time: Time.new(2022, 4, 11, 10, 0),
                                       therapist: new_therapist,
                                       user: new_user
 )
 new_appointment = Appointment.create!(date_time: DateTime.httpdate('Sat, 03 Feb 2020 04:05:06 GMT'),
+                                      time: Time.new(2020, 2, 3, 4, 5, 6),
                                       therapist: new_therapist,
                                       user: new_user
 )
