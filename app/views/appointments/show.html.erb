@@ -29,6 +29,7 @@
   <% else %>
 
     <div class="card-appointment card-show-appointment">
+     <%= link_to 'Assister à votre consultation', appointment_visio_path(@appointment), class:"button-vert" %>
       <% if DateTime.now > @appointment.date_time %>
         <h2>Recap' de votre rendez-vous</h2>
         <h4 class="p-show-appointment">Votre rendez-vous du <br> <%= @appointment.date_time.strftime("%d/%m/%Y")%> à <%= @appointment.date_time.strftime("%I:%M%p")%> <br> avec <%= @therapist.first_name %> <%= @therapist.last_name %></h4>
@@ -36,15 +37,57 @@
         <%= link_to 'Ordonnances', prescriptions_path(@appointment), class:"button-vert" %>
         <%= link_to 'Feedbacks', appointment_feedbacks_path(@appointment), class:"button-vert" %>
 
-      <% else %>
-        <h2>La marche à suivre</h2>
-        <h4 class="p-show-appointment">Vous pourrez assistez à votre rendez-vous du <%= @appointment.date_time.strftime("%d/%m/%Y") %> avec <%= @therapist.first_name %> <%= @therapist.last_name %> en cliquant ci-dessous :</h4>
-         <br>
+      <% elsif DateTime.now == @appointment.date_time %>
+        <h2>C'est l'heure de votre rendez-vous !</h2>
          <%= link_to 'Assister à votre consultation', appointment_visio_path(@appointment), class:"button-vert" %>
-         <br>
-         <%= link_to 'Modifier RDV',  edit_appointment_path(@appointment), class:"button-vert" %>
-         <%= link_to 'Annuler RDV',  therapist_appointment_delete_path(therapist_id: @appointment.therapist.id, id: @appointment.id), class:"button-vert", method: :delete, remote: true %>
+
+      <% else %>
+          <h2>La marche à suivre</h2>
+          <h4 class="p-show-appointment">Votre rendez-vous du <%= @appointment.date_time.strftime("%d/%m/%Y") %> a bien été pris en compte avec <%= @therapist.first_name %> <%= @therapist.last_name %>.</h4>
+          <br>
+          <h4>Vous pourrez y accéder en temps voulu</h4>
+          <%= link_to 'Assister à votre consultation', appointment_visio_path(@appointment), class:"button-vert" %>
+          <br>
+          <%= link_to 'Modifier RDV',  edit_appointment_path(@appointment), class:"button-vert" %>
+          <%= link_to 'Annuler RDV',  therapist_appointment_delete_path(therapist_id: @appointment.therapist.id, id: @appointment.id), class:"button-vert", method: :delete, remote: true %>
       <% end %>
     </div>
   <% end %>
+</div>
+
+
+<div class="container">
+  <div
+    class="twilio-video"
+    data-sid="<%= ENV["ACCOUNT_SID"] %>"
+    data-room="<%= @appointment.url_room %>"
+    data-token="<%= @token %>"
+    >
+
+    <div class="row justify-content-between">
+      <div class="col-7">
+        <div class="participant">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="remote-media-div text-center">
+          <video id="userVideo" autoplay muted="true" ></video>
+          <div>
+            <button id='leave-btn' class='btn btn-primary mt-3'>
+              Quittez
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-7">
+      <%# <p class="text-center">
+        <%= @appointment.booker == current_user ? @appointment.proposal.proposer.email : @appointment.booker.email %>
+      <%# </p> %>
+      </div>
+    </div>
+    <%= link_to '', root_path, class: 'd-none root-link', data: {turbolinks: false}  %>
+
+  </div>
 </div>

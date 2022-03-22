@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2022_03_22_063353) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "date_time"
+    t.string "url_room"
     t.time "time"
     t.index ["therapists_id"], name: "index_appointments_on_therapists_id"
     t.index ["users_id"], name: "index_appointments_on_users_id"
