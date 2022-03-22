@@ -14,8 +14,9 @@
           <% end %>
       </div>
     </div>
-    <% if user_signed_in? %>
-      <h2 class="h2_favorite_therapists">Mes therapeutes favoris</h2>
+    <% if user_signed_in? && current_user.therapist == false && Appointment.where(users_id: current_user.id).any? %>
+    <br>
+      <h3 class="h3_favorite_therapists">Mes therapeutes favoris</h3>
        <div class="container_favorite_therapists">
       <% @appointment_uniq.each do |appointment| %>
         <div class="container-index-therapist">
