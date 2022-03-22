@@ -267,16 +267,15 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    twilio-ruby (5.61.2)
-      faraday (>= 0.9, < 2.0)
-      jwt (>= 1.5, <= 2.5)
-      nokogiri (>= 1.6, < 2.0)
-
     turbolinks_render (0.9.21)
       actionpack (>= 5.2.0)
       activesupport (>= 5.2.0)
       railties (>= 5.2.0)
       turbolinks-source (~> 5.1)
+    twilio-ruby (5.61.2)
+      faraday (>= 0.9, < 2.0)
+      jwt (>= 1.5, <= 2.5)
+      nokogiri (>= 1.6, < 2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
@@ -334,8 +333,8 @@ DEPENDENCIES
   simple_form!
   spring
   turbolinks (~> 5)
-  twilio-ruby (~> 5.61.1)
   turbolinks_render
+  twilio-ruby (~> 5.61.1)
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
