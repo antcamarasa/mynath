@@ -16,7 +16,7 @@ class AppointmentsController < ApplicationController
     @therapist = User.find(params[:therapist_id])
     @appointment = Appointment.new
     @user = current_user
-    @timeframe = [[Time.new(2022, 3, 26, 10, 0), "10h00-11h00"], [Time.new(2022, 3, 26, 11, 0), "11h00-12h00"], [Time.new(2022, 3, 26, 14, 0), "14h00-15h00"], [Time.new(2022, 3, 26, 15, 0), "15h00-16h00"]]
+    time_frame
   end
 
   def create
@@ -28,12 +28,13 @@ class AppointmentsController < ApplicationController
     if @appointment.save
       redirect_to therapist_appointment_path(@therapist, @appointment)
     else
-      render :new
+      render "appointments#new"
     end
 
   end
 
   def edit
+    time_frame
   end
 
   def update
@@ -58,4 +59,9 @@ private
   def appointment_params
     params.require(:appointment).permit(:date_time, :time)
   end
+
+  def time_frame
+    @timeframe = [[Time.new(2022, 3, 26, 10, 0), "10h00-11h00"], [Time.new(2022, 3, 26, 11, 0), "11h00-12h00"], [Time.new(2022, 3, 26, 14, 0), "14h00-15h00"], [Time.new(2022, 3, 26, 15, 0), "15h00-16h00"]]
+  end
+
 end
