@@ -16,7 +16,7 @@ class AppointmentsController < ApplicationController
     @therapist = User.find(params[:therapist_id])
     @appointment = Appointment.new
     @user = current_user
-    @timeframe = [[Time.new(2022, 3, 25, 18, 0), "18h00-19h00"], [Time.new(2022, 3, 25, 19, 0), "19h00-20h00"], [Time.new(2022, 3, 26, 10, 0), "10h00-11h00"], [Time.new(2022, 3, 26, 11, 0), "11h00-12h00"]]
+    @timeframe = [[Time.new(2022, 3, 26, 10, 0), "10h00-11h00"], [Time.new(2022, 3, 26, 11, 0), "11h00-12h00"], [Time.new(2022, 3, 26, 14, 0), "14h00-15h00"], [Time.new(2022, 3, 26, 15, 0), "15h00-16h00"]]
   end
 
   def create
