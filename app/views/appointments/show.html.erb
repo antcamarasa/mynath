@@ -2,6 +2,7 @@
 <br>
   <% if current_user.therapist == true %>
     <h2>Votre rendez-vous avec <% @user.first_name %> <%= @user.last_name %> du <%= @appointment.date_time.strftime("%d/%m/%Y")%> à <%= @appointment.date_time.strftime("%I:%M%p")%> </h2>
+    <%= link_to 'Accéder à votre consultation =>', appointment_visio_path(@appointment), class:"button-vert" %>
   <div>
   <br>
     <% if @appointment.prescriptions.any? %>
@@ -53,41 +54,4 @@
       <% end %>
     </div>
   <% end %>
-</div>
-
-
-<div class="container">
-  <div
-    class="twilio-video"
-    data-sid="<%= ENV["ACCOUNT_SID"] %>"
-    data-room="<%= @appointment.url_room %>"
-    data-token="<%= @token %>"
-    >
-
-    <div class="row justify-content-between">
-      <div class="col-7">
-        <div class="participant">
-        </div>
-      </div>
-      <div class="col-4">
-        <div class="remote-media-div text-center">
-          <video id="userVideo" autoplay muted="true" ></video>
-          <div>
-            <button id='leave-btn' class='btn btn-primary mt-3'>
-              Quittez
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-7">
-      <%# <p class="text-center">
-        <%= @appointment.booker == current_user ? @appointment.proposal.proposer.email : @appointment.booker.email %>
-      <%# </p> %>
-      </div>
-    </div>
-    <%= link_to '', root_path, class: 'd-none root-link', data: {turbolinks: false}  %>
-
-  </div>
 </div>

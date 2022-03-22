@@ -1,4 +1,4 @@
-.user-btn {
+user-btn {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -7,19 +7,129 @@
   list-style: none;
 }
 
-  .participant {
-  border-radius: 16px;
-  overflow: hidden;
-  video {
-    border-radius: 16px;
+.consultation {
+  top: 0 !important;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  .twilio-video{
     width: 100%;
+    height: 100%;
+    position: relative;
+    .participant {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      z-index: 0;
+      video {
+    width: 100vw !important;
+    height: 100%;
+    object-fit: cover;
+    background-color: gray;
+    }
+    }
+    #userVideo {
+    width: 100px;
+    height: 130px;
+    border-radius: 15px;
+    position: absolute;
+    z-index: 1;
+    top: 30px;
+    left: 30px;
+    object-fit: cover;
+    background-color: gray;
+    box-shadow: 0 0 15px 5px rgba(0,0,0,0.2);
+  }
+  #leave-btn {
+    border-radius: 3px;
+    position: absolute;
+    z-index: 1;
+    top: 30px;
+    left: 30px;
+    border-radius: 100%;
+    border: none;
+    width: 30px;
+    height: 30px;
+    background-color: var(--main-color);
+    box-shadow: 0 0 15px 5px rgba(0,0,0,0.2);
+    color: white;
+  }
   }
 }
 
-.remote-media-div {
-}
-
-#userVideo {
-  width: 100%;
-  border-radius: 16px;
-}
+// .consultation {
+//   top: 0 !important;
+//   padding: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   .twilio-video{
+//     width: 100%;
+//     height: 100%;
+//     position: relative;
+//     .participant {
+//       width: 100%;
+//       height: 100vh;
+//       position: relative;
+//       z-index: 0;
+//       video {
+//     width: 100vw !important;
+//     height: 100%;
+//     object-fit: cover;
+//     background-color: gray;
+//     }
+//     }
+//     #userVideo {
+//     width: 100px;
+//     height: 130px;
+//     border-radius: 15px;
+//     position: absolute;
+//     z-index: 1;
+//     top: 30px;
+//     left: 30px;
+//     object-fit: cover;
+//     background-color: gray;
+//     box-shadow: 0 0 15px 5px rgba(0,0,0,0.2);
+//   }
+//   #leave-btn {
+//     border-radius: 3px;
+//     position: absolute;
+//     z-index: 1;
+//     top: 30px;
+//     left: 30px;
+//     border-radius: 100%;
+//     border: none;
+//     width: 30px;
+//     height: 30px;
+//     background-color: var(--main-color);
+//     box-shadow: 0 0 15px 5px rgba(0,0,0,0.2);
+//     color: white;
+//   }
+//   }
+// }
+// .nav-consultation {
+//     background: #F1F1F1;
+//     height: 70px;
+//     width: 70px;
+//     position: absolute;
+//     bottom: 46px;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     z-index: 20;
+//     padding: .3rem;
+//     border-radius: 50%;
+//     box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+// }
+// .nav-consultation:hover {
+// }
+// .nav-consultation button {
+//     border: 7px solid #FF0000;
+//     height: 100%;
+//     width: 100%;
+//     border-radius: 50%;
+//     display: grid;
+//     place-items: center;
+//         img {
+//       width: 30px;
+//       height: auto;
+//     }
+// }
