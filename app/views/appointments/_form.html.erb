@@ -4,72 +4,7 @@
   <div class="radio-button">
   <%= f.input :time, label: "Choisissez votre créneau:", as: :radio_buttons, collection: @timeframe, :label_method => :last, :value_method => :first  %>
   </div>
-  <%= f.input  %>
   <%= f.button :submit, value: "Prendre votre RDV", class: "button-vert" %>
 
 <% end %>
 </div>
-
-
-<%# On submit => Récupérer current user + therapist %>
-
-
-<%# --------------- Form Insta pet ---------------%>
-
-<form action="/consultations" method="post">
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        <label class="form-input" for="animals">Choose your pet:</label>
-        <div class= "popular section-wrapper">
-          <select class="select-pet" name="animal_id" id="animals">
-            <% @animals.each do |animal| %>
-              <option value="<%= animal.id %>"><%= animal.name %></option>
-            <% end %>
-          </select>
-      </div>
-      <label class="form-input" for="users">Available vet:</label>
-      <div class= "popular section-wrapper">
-        <% @veterinarians.each do |user| %>
-          <label class="card-label">
-          <input type="radio" value="<%= user.id %>" name="user_id" class="card-input-element" />
-          <p><%= user.first_name %></p>
-              <div class="card-input" class="img-vet">
-                <%if user.photo.attached?%>
-                  <%= cl_image_tag user.photo.key, height: 100, width: 100, crop: :fill %>
-                <% end %>
-              </div>
-            </label>
-          <% end %>
-        </div>
-        <div class="call-action">
-        <input type="submit" value="Call Now !" class="btn btn-success" >
-        </div>
-      </form>
-
-<%# ------------------------------------------%>
-
-
-<%# ------------- Card Favorite therapist------------%>
-<div class="container_favorite_therapists">
-      <% @appointment_uniq.each do |appointment| %>
-        <div class="container-index-therapist">
-          <div class="therapist-card-index justify-content-between-index">
-            <div class="card-product-favorite">
-              <div class=""><%= cl_image_tag appointment.therapist.photo.key, crop: :fill %></div>
-                <div class="card-product-infos text-end">
-                  <h2 class="h2-card-therapist">
-                    <strong><%= appointment.therapist.first_name %></strong>
-                    <%= appointment.therapist.last_name %>
-                  </h2>
-                  <h4 class="h4-card-therapist">
-                    <%= appointment.therapist.speciality %>
-                  </h4>
-                  <%= link_to 'Prendre un RDV', new_therapist_appointment_path(appointment.therapist), class:"form-button-favorite_therapists btn" %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-</div>
-
-<%# ------------------------------------------%>
