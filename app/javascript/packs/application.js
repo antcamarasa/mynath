@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -19,7 +20,17 @@ import "bootstrap"
 // ./packs/application.js
 import { Application } from 'stimulus'
 import { definitionsFromContext } from 'stimulus/webpack-helpers'
+import  twilioInit  from '../plugins/twilio.js';
 
 const application = Application.start()
 const context = require.context('../controllers', true, /\.js$/)
 application.load(definitionsFromContext(context))
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your functions here, e.g:
+  // initSelect2();
+  //toggler()
+  if (document.querySelector('.twilio-video')) {
+    twilioInit();
+  }
+});

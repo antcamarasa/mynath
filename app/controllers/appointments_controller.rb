@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
+
   def index
     @appointments = Appointment.all
     @user = current_user
@@ -9,7 +10,8 @@ class AppointmentsController < ApplicationController
   def show
     @therapist = User.find(params[:therapist_id])
     @user = current_user
-    #@therapist = @appointment.therapists_id
+    # authorize @appointment
+    @token = generate_token(@appointment)
   end
 
   def new
@@ -24,7 +26,6 @@ class AppointmentsController < ApplicationController
     @user = current_user
     @appointment.users_id = @user.id
     @appointment.therapists_id = @therapist.id
-
     if @appointment.save
       redirect_to therapist_appointment_path(@therapist, @appointment)
     else
@@ -57,5 +58,18 @@ private
 
   def appointment_params
     params.require(:appointment).permit(:date_time)
+  end
+
+  def generate_token(appointment)
+    # Create an Access Token
+    token = Twilio::JWT::AccessToken.new ENV['ACCOUNT_SID'], ENV['KEY_ID'], ENV['AUTH_TOKEN'], [],
+        ttl: 14400,
+        identity: current_user.email
+    # Grant access to Video
+    grant = Twilio::JWT::AccessToken::VideoGrant.new
+    grant.room = appointment.url_room
+    token.add_grant grant
+    # Serialize the token as a JWT
+    token.to_jwt
   end
 end
