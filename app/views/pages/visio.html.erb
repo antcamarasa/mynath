@@ -12,7 +12,11 @@
   <div class="button-visio-center">
     <button id='leave-btn' class='button-viso btn'><i class="fa-solid fa-phone-slash"></i></button>
     <div>
-      <%= link_to 'Quittez', therapist_appointment_path(@appointment_id, @appointment.therapist), class: 'd-none root-link', data: {turbolinks: false}  %>
+      <%  if current_user.therapist == true %>
+      <%= link_to 'Quittez', therapist_appointment_path(therapist_id: @appointment.therapist.id, id: @appointment.id), class: 'd-none root-link', data: {turbolinks: false}  %>
+      <%else%>
+      <%= link_to appointment_prescriptions_path(@appointment) class: 'd-none root-link', data: {turbolinks: false}   %>
+      <% end %>
     </div>
   </div>
 </div>
