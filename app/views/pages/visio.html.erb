@@ -10,9 +10,16 @@
   </div>
 
   <div class="button-visio-center">
+     <%  if current_user.therapist == true %>
     <button id='leave-btn' class='button-viso btn'><i class="fa-solid fa-phone-slash"></i></button>
     <div>
-      <%= link_to 'Quittez', root_path, class: 'd-none root-link', data: {turbolinks: false}  %>
+      <%= link_to 'Quittez', therapist_appointment_path(therapist_id: @appointment.therapist.id, id: @appointment.id), class: 'd-none root-link', data: {turbolinks: false}  %>
     </div>
+      <%else%>
+      <button id='leave-btn' class='button-viso btn'><i class="fa-solid fa-phone-slash"></i></button>
+      <div>
+      <%= link_to 'Quittez', prescriptions_path, class: 'd-none root-link', data: {turbolinks: false}   %>
+    </div>
+    <% end %>
   </div>
 </div>

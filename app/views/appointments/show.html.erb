@@ -1,8 +1,8 @@
 <div>
 <br>
   <% if current_user.therapist == true %>
-    <h2>Votre rendez-vous avec <% @user.first_name %> <%= @user.last_name %> du <%= @appointment.date_time.strftime("%d/%m/%Y")%> <%= @appointment.time.strftime("à %I:%M %p") %> </h2>
-    <%= link_to 'Accéder à votre consultation =>', appointment_visio_path(@appointment), class:"button-vert" %>
+    <h2>Votre rendez-vous avec <%= @appointment.user.first_name %> <%= @appointment.user.last_name %> du <%= @appointment.date_time.strftime("%d/%m/%Y")%> <%= @appointment.time.strftime("à %I:%M %p") %> </h2>
+    <%= link_to 'Accéder à votre consultation ', appointment_visio_path(@appointment), class:"button-vert" %>
   <div>
   <br>
     <% if @appointment.prescriptions.any? %>
