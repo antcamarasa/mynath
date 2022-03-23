@@ -14,17 +14,35 @@
             <% end %>
           </div>
       <% else %>
-          <div>
-            <%= link_to prescriptions_path do %>
-              <i class="icon fas fa-pills"></i>
-            <% end %>
-          </div>
+          <% if user_signed_in? %>
+            <div>
+              <%= link_to prescriptions_path do %>
+                <i class="icon fas fa-pills"></i>
+              <% end %>
+            </div>
+          <% else %>
+            <div>
+              <%= link_to new_user_session_path do %>
+                <i class="icon fas fa-pills"></i>
+              <% end %>
+            </div>
+          <% end %>
       <% end %>
-      <div>
-        <%= link_to appointments_path do %>
-          <i class="icon fas fa-calendar-check"></i>
-        <% end %>
-      </div>
+
+      <% if user_signed_in? %>
+        <div>
+          <%= link_to appointments_path do %>
+            <i class="icon fas fa-calendar-check"></i>
+          <% end %>
+        </div>
+      <% else %>
+        <div>
+          <%= link_to new_user_session_path do %>
+            <i class="icon fas fa-calendar-check"></i>
+          <% end %>
+        </div>
+      <% end %>
+
       <div>
         <%= link_to therapists_path do %>
           <i class="icon fas fa-user-md"></i>
