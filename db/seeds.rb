@@ -14,9 +14,9 @@ require 'time'
 Appointment.destroy_all
 User.destroy_all
 
-file = URI.open('https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1268&q=80')
+file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014176/MyNath/antoine_gfofig.png')
 new_user = User.create!(first_name: "Antoine",
-                        last_name: "Louis",
+                        last_name: "Camarasa",
                         email: "antoine.camarasa@gmail.com",
                         password: "password",
                         therapist: false,
@@ -28,7 +28,35 @@ new_user = User.create!(first_name: "Antoine",
 new_user.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 new_user.photo.attached?
 
-file = URI.open('https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60')
+file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014176/MyNath/myriam_eepnmi.png')
+new_user_1 = User.create!(first_name: "Lucie",
+                        last_name: "Ader",
+                        email: "lucie@gmail.com",
+                        password: "password",
+                        therapist: false,
+                        weight: "52",
+                        height: "164",
+                        birthday_date: "1992-06-23",
+                        phone_number: "0667384990"
+                      )
+new_user_1.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
+new_user_1.photo.attached?
+
+file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014175/MyNath/roukaya_qzaewa.png')
+new_user_2 = User.create!(first_name: "Claire",
+                        last_name: "Colombani",
+                        email: "claire@gmail.com",
+                        password: "password",
+                        therapist: false,
+                        weight: "48",
+                        height: "161",
+                        birthday_date: "1990-06-23",
+                        phone_number: "0667384989"
+                      )
+new_user_2.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
+new_user_2.photo.attached?
+
+file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014175/MyNath/sawan_c3hcd7.png')
 new_therapist = User.create!(first_name: "Louis",
                         last_name: "Lemoine",
                         email: "louis@gmail.com",
@@ -56,9 +84,9 @@ new_therapist.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', con
 # new_prescription.document.attach(io: file, filename: 'prescription.png', content_type: 'document/webp')
 
 
-file = URI.open('https://images.unsplash.com/photo-1568923066121-fb6216cf26f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')
+file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014175/MyNath/yogesh_nfvipe.png')
 new_therapist_1 = User.create!(first_name: "Gerard",
-                        last_name: "Louis",
+                        last_name: "René",
                         email: "gerard@gmail.com",
                         password: "password",
                         therapist: true,
@@ -66,7 +94,7 @@ new_therapist_1 = User.create!(first_name: "Gerard",
                       )
 new_therapist_1.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 
-file = URI.open('https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1268&q=80')
+file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014175/MyNath/souraya_vzgfcw.png')
 new_therapist_2 = User.create!(first_name: "Souraya",
                         last_name: "Chenai",
                         email: "souraya@gmail.com",
@@ -76,7 +104,7 @@ new_therapist_2 = User.create!(first_name: "Souraya",
                       )
 new_therapist_2.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 
-file = URI.open('https://images.unsplash.com/photo-1568923066121-fb6216cf26f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')
+file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014175/MyNath/ifediba_agyu4p.png')
 new_therapist_3 = User.create!(first_name: "Natalie",
                         last_name: "Hernandez",
                         email: "nataliea@gmail.com",
@@ -86,8 +114,8 @@ new_therapist_3 = User.create!(first_name: "Natalie",
                       )
 new_therapist_3.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 
-file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1647859584/development/naturopathe_xbrz6l.jpg')
-new_therapist_4 = User.create!(first_name: "Lea",
+file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014176/MyNath/jo_occnha.png')
+new_therapist_4 = User.create!(first_name: "Jo",
                         last_name: "Amigues",
                         email: "josephine@gmail.com",
                         password: "password",
@@ -96,7 +124,7 @@ new_therapist_4 = User.create!(first_name: "Lea",
                       )
 new_therapist_4.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 
-file = URI.open('https://images.unsplash.com/photo-1568923066121-fb6216cf26f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')
+file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014465/MyNath/basile_vzowtm.png')
 new_therapist_5 = User.create!(first_name: "Basile",
                         last_name: "Maurice",
                         email: "basile@gmail.com",
@@ -107,7 +135,7 @@ new_therapist_5 = User.create!(first_name: "Basile",
 new_therapist_5.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 
 
-file = URI.open('https://images.unsplash.com/photo-1568923066121-fb6216cf26f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')
+file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014175/MyNath/sawan_c3hcd7.png')
 new_therapist_6 = User.create!(first_name: "Laurent",
                         last_name: "Mirot",
                         email: "laurent@gmail.com",
@@ -118,7 +146,7 @@ new_therapist_6 = User.create!(first_name: "Laurent",
 new_therapist_6.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 
 
-file = URI.open('https://images.unsplash.com/photo-1568923066121-fb6216cf26f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')
+file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014176/MyNath/myriam_eepnmi.png')
 new_therapist_7 = User.create!(first_name: "Myriam",
                         last_name: "Abd",
                         email: "myriame@gmail.com",
@@ -128,10 +156,10 @@ new_therapist_7 = User.create!(first_name: "Myriam",
                       )
 new_therapist_7.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 
-file = URI.open('https://images.unsplash.com/photo-1568923066121-fb6216cf26f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')
-new_therapist_8 = User.create!(first_name: "Fernand",
+file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014175/MyNath/roukaya_qzaewa.png')
+new_therapist_8 = User.create!(first_name: "Roukaya",
                         last_name: "Lilo",
-                        email: "fernad@gmail.com",
+                        email: "roukaya@gmail.com",
                         password: "password",
                         therapist: true,
                         speciality: "Migraine"
@@ -139,7 +167,7 @@ new_therapist_8 = User.create!(first_name: "Fernand",
 new_therapist_8.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 
 
-file = URI.open('https://images.unsplash.com/photo-1568923066121-fb6216cf26f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')
+file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014175/MyNath/souraya_vzgfcw.png')
 new_therapist_9 = User.create!(first_name: "Elsa",
                         last_name: "ploutic",
                         email: "elsa@gmail.com",
@@ -150,7 +178,7 @@ new_therapist_9 = User.create!(first_name: "Elsa",
 new_therapist_9.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 
 
-file = URI.open('https://images.unsplash.com/photo-1568923066121-fb6216cf26f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')
+file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014176/MyNath/antoine_gfofig.png')
 new_therapist_10 = User.create!(first_name: "Marc",
                         last_name: "Zukerberg",
                         email: "marc-zuckergerfe@gmail.com",
@@ -161,7 +189,7 @@ new_therapist_10 = User.create!(first_name: "Marc",
 new_therapist_10.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 
 
-file = URI.open('https://images.unsplash.com/photo-1568923066121-fb6216cf26f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')
+file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014175/MyNath/yogesh_nfvipe.png')
 new_therapist_11 = User.create!(first_name: "Rodrigo",
                         last_name: "El patron",
                         email: "rodrigo@gmail.com",
