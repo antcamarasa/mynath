@@ -3,9 +3,9 @@ class AppointmentsController < ApplicationController
   require 'twilio-ruby'
 
   def patient_appointments(patient)
-    patient_appointments = patient.appointments
-    therapist = current_user
-    @appointments = patient_appointments.where(therapists_id: therapist)
+    @patient_appointments = patient.appointments
+    @therapist = current_user
+    @appointments = @patient_appointments.where(therapists_id: @therapist)
     raise
     render :index
   end
