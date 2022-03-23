@@ -2,6 +2,14 @@ class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
   require 'twilio-ruby'
 
+  def patient_appointments
+    @user = User.find(params[:id])
+    @patient_appointments = Appointment.where(users_id: @user)
+    @therapist = current_user
+    @appointments = @patient_appointments.where(therapists_id: @therapist)
+    render :index
+  end
+
   def index
     @appointments = Appointment.all
     @user = current_user
