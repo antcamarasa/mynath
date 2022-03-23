@@ -1,7 +1,7 @@
 <div>
 <br>
   <% if current_user.therapist == true %>
-    <h2>Votre rendez-vous avec <% @user.first_name %> <%= @user.last_name %> du <%= @appointment.date_time.strftime("%d/%m/%Y")%> à <%= @appointment.date_time.strftime("%I:%M%p")%> </h2>
+    <h2>Votre rendez-vous avec <% @user.first_name %> <%= @user.last_name %> du <%= @appointment.date_time.strftime("%d/%m/%Y")%> <%= @appointment.time.strftime("à %I:%M %p") %> </h2>
     <%= link_to 'Accéder à votre consultation =>', appointment_visio_path(@appointment), class:"button-vert" %>
   <div>
   <br>
@@ -33,7 +33,7 @@
      <%= link_to 'Assister à votre consultation', appointment_visio_path(@appointment), class:"button-vert" %>
       <% if DateTime.now > @appointment.date_time %>
         <h2>Recap' de votre rendez-vous</h2>
-        <h4 class="p-show-appointment">Votre rendez-vous du <br> <%= @appointment.date_time.strftime("%d/%m/%Y")%> à <%= @appointment.date_time.strftime("%I:%M%p")%> <br> avec <%= @therapist.first_name %> <%= @therapist.last_name %></h4>
+        <h4 class="p-show-appointment">Votre rendez-vous du <br> <%= @appointment.date_time.strftime("%d/%m/%Y")%> à <%= @appointment.time.strftime("%I:%M%p")%> <br> avec <%= @therapist.first_name %> <%= @therapist.last_name %></h4>
         <br>
         <%= link_to 'Ordonnances', prescriptions_path(@appointment), class:"button-vert" %>
         <%= link_to 'Feedbacks', appointment_feedbacks_path(@appointment), class:"button-vert" %>
@@ -44,7 +44,7 @@
 
       <% else %>
           <h2>La marche à suivre</h2>
-          <h4 class="p-show-appointment">Votre rendez-vous du <%= @appointment.date_time.strftime("%d/%m/%Y") %> a bien été pris en compte avec <%= @therapist.first_name %> <%= @therapist.last_name %>.</h4>
+          <h4 class="p-show-appointment">Votre rendez-vous du <%= @appointment.date_time.strftime("%d/%m/%Y") %> à <%= @appointment.time.strftime("%I:%M%p")%> a bien été pris en compte avec <%= @therapist.first_name %> <%= @therapist.last_name %>.</h4>
           <br>
           <h4>Vous pourrez y accéder en temps voulu</h4>
           <%= link_to 'Assister à votre consultation', appointment_visio_path(@appointment), class:"button-vert" %>
