@@ -28,7 +28,7 @@ class AppointmentsController < ApplicationController
     if @appointment.save
       redirect_to therapist_appointment_path(@therapist, @appointment)
     else
-      render "appointments#new"
+      render :new
     end
 
   end
