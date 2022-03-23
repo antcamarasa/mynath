@@ -10,8 +10,6 @@ class AppointmentsController < ApplicationController
   def show
     @therapist = User.find(params[:therapist_id])
     @user = current_user
-    # authorize @appointment
-    @token = generate_token(@appointment)
   end
 
   def new
