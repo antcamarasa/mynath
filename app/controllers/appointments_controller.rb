@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
+  before_action :time_frame, only: :new
   require 'twilio-ruby'
 
   def patient_appointments
@@ -36,7 +37,8 @@ class AppointmentsController < ApplicationController
     if @appointment.save
       redirect_to therapist_appointment_path(@therapist, @appointment)
     else
-      render :new
+      flash[:notice] = 'Erreur ! Selectionner un horaire'
+      redirect_to new_therapist_appointment_path(@therapist)
     end
 
   end
@@ -69,7 +71,7 @@ private
   end
 
   def time_frame
-    @timeframe = [[Time.new(2022, 3, 26, 10, 0, 0, '+04:00'), "10h00-11h00"], [Time.new(2022, 3, 26, 11, 0, 0, '+04:00'), "11h00-12h00"], [Time.new(2022, 3, 26, 14, 0, 0, '+04:00'), "14h00-15h00"], [Time.new(2022, 3, 26, 15, 0, 0, '+04:00'), "15h00-16h00"]]
+    @timeframe = [[Time.new(2022, 3, 26, 10, 0, 0, '+04:00'), "10h00-11h00"], [Time.new(2022, 3, 26, 11, 0, 0, '+04:00'), "11h00-12h00"], [Time.new(2022, 3, 26, 12, 0, 0, '+04:00'), "12h00-13h00"], [Time.new(2022, 3, 26, 13, 0, 0, '+04:00'), "13h00-14h00"], [Time.new(2022, 3, 26, 14, 0, 0, '+04:00'), "14h00-15h00"], [Time.new(2022, 3, 26, 15, 0, 0, '+04:00'), "15h00-16h00"]]
   end
 
 

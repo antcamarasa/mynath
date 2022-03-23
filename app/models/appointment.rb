@@ -8,6 +8,7 @@ class Appointment < ApplicationRecord
 
 
   validates :date_time, presence: true
+  validates :time, presence: true
 
 
   # callback ActiveRecord
