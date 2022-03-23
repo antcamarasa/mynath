@@ -2,11 +2,13 @@
   <h1 class="mb-3">Mes patients</h1>
 
   <% @appointment_uniq.each do |appointment| %>
-        <%= link_to patient_appointments_path(appointment.user), class: "text-decoration-none" do %>
+       <%= link_to patient_appointments_path(appointment.user.id), class: "text-decoration-none" do %>
         <div class="d-flex">
           <div class="d-flex mt-1 listing">
           <h4 class="listing-elements"><%= appointment.user.last_name %> <%= appointment.user.first_name %></h4>
           </div>
         </div>
-  <% end %>
+        <% end %>
+      <% end %>
+
 </div>
