@@ -10,8 +10,6 @@ class AppointmentsController < ApplicationController
   def show
     @therapist = User.find(params[:therapist_id])
     @user = current_user
-    # authorize @appointment
-    @token = generate_token(@appointment)
   end
 
   def new
@@ -66,16 +64,5 @@ private
     @timeframe = [[Time.new(2022, 3, 26, 10, 0, 0, '+04:00'), "10h00-11h00"], [Time.new(2022, 3, 26, 11, 0, 0, '+04:00'), "11h00-12h00"], [Time.new(2022, 3, 26, 14, 0, 0, '+04:00'), "14h00-15h00"], [Time.new(2022, 3, 26, 15, 0, 0, '+04:00'), "15h00-16h00"]]
   end
 
-  def generate_token(appointment)
-    # Create an Access Token
-    token = Twilio::JWT::AccessToken.new ENV['ACCOUNT_SID'], ENV['KEY_ID'], ENV['AUTH_TOKEN'], [],
-        ttl: 14400,
-        identity: current_user.email
-    # Grant access to Video
-    grant = Twilio::JWT::AccessToken::VideoGrant.new
-    grant.room = appointment.url_room
-    token.add_grant grant
-    # Serialize the token as a JWT
-    token.to_jwt
-  end
+
 end
