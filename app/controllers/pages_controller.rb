@@ -33,7 +33,7 @@ class PagesController < ApplicationController
 
   def generate_token(appointment)
     # Create an Access Token
-    token = Twilio::JWT::AccessToken.new ENV['ACCOUNT_SID'], ENV['KEY_ID'], ENV['API_KEY_SECRET'], [],
+    token = Twilio::JWT::AccessToken.new ENV['ACCOUNT_SID'], ENV['KEY_ID'], ENV['AUTH_TOKEN'], [],
         ttl: 14400,
         identity: current_user.email
     # Grant access to Video
