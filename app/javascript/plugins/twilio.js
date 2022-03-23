@@ -46,7 +46,9 @@ const twilioInit = () => {
       link.click()
     });
     // twilioAddParticipant(room);
-  });
+  }).catch(error => {
+      console.log(error);
+    });
 }
 
 const participantConnected = (participant) => {
