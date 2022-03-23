@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get "therapists", to: 'pages#index'
   get "patients", to: 'pages#patients'
+  get "patient_appointments", to: 'appointments#patient_appointments'
   # get "visio", to: 'pages#visio'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
    resources :appointments, only: [:index, :edit, :update] do
