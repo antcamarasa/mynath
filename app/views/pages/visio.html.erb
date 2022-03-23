@@ -5,13 +5,14 @@
     data-room="<%= @appointment.url_room %>"
     data-token="<%= @token %>"
     >
-  <div class="participant"></div>
-  <video id="userVideo" autoplay muted="true" ></video>
+    <div class="participant"></div>
+    <video id="userVideo" autoplay muted="true" ></video>
   </div>
 
-
-    <button id='leave-btn' class='btn btn-primary mt-3'> Quittez </button>
-  <div>
-    <%= link_to 'Quittez', root_path, class: 'd-none root-link', data: {turbolinks: false}  %>
+  <div class="button-visio-center">
+    <button id='leave-btn' class='button-viso btn'><i class="fa-solid fa-phone-slash"></i></button>
+    <div>
+      <%= link_to 'Quittez', root_path, class: 'd-none root-link', data: {turbolinks: false}  %>
+    </div>
   </div>
 </div>
