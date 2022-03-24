@@ -8,12 +8,14 @@ class AppointmentsController < ApplicationController
     @patient_appointments = Appointment.where(users_id: @user)
     @therapist = current_user
     @appointments = @patient_appointments.where(therapists_id: @therapist)
-    render :index
+    # @appointments_therapist = Appointment.where(therapists_id: current_user)
+
   end
 
   def index
-    @appointments = Appointment.all
     @user = current_user
+    @appointments = Appointment.where(users_id: @user)
+    @appointments_therapist = Appointment.where(therapists_id: current_user)
   end
 
   def show

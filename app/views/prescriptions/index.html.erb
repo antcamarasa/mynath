@@ -3,9 +3,12 @@
     <h1 class="mb-3">Mes ordonnances</h1>
   </div>
   <div>
-      <% @prescriptions.reverse_each do |prescription| %>
-        <% if prescription.appointment.users_id == current_user.id %>
-      <div class="d-flex">
+   <% if @appointments_with_prescriptions.empty? %>
+      <h4>Vous n'avez aucune prescription</h4>
+    <% else  %>
+    <% @appointments_with_prescriptions.each do |appointment|  %>
+      <% appointment.prescriptions.each do |prescription| %>
+       <div class="d-flex">
         <div class="d-flex mt-1 listing">
           <h4 class="listing-elements"><%= prescription.description %></h4>
           <p class="listing-elements"><%= prescription.appointment.therapist.first_name %> <%= prescription.appointment.therapist.last_name %></p>
@@ -13,11 +16,9 @@
           <div class="listing-elements" >
             <%= link_to rails_blob_path(prescription.document, disposition: "attachment") do %>
             <i class="fa-solid fa-download fa-download-color-vert fa-lg"></i>
-            <% end %>
-          </div>
-        </div>
-       </div>
-        <% end %>
-      <% end %>
+            <% end  %>
+      <% end  %>
+    <% end %>
+  <% end  %>
   </div>
 </div>
