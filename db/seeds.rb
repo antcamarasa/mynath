@@ -242,8 +242,8 @@ feedback_souraya_3 = Feedback.create!(review_therapist: "Super bravo ! La suite 
                                         appointment: parole_antoine
                                         )
  #RDV 4 JO
- hormone_josephine = Appointment.create!(date_time: DateTime.new(2022, 3, 25, 17, 0),
- time: Time.new(2022, 3, 25, 17, 0),
+ hormone_josephine = Appointment.create!(date_time: DateTime.new(2022, 3, 25, 15, 0),
+ time: Time.new(2022, 3, 25, 15, 0),
  therapist: myriam,
  user: josephine
 )
