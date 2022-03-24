@@ -5,12 +5,11 @@
 
   <% @appointments.reverse_each do |appointment| %>
 
-
       <% if appointment.users_id == current_user.id %>
       <%= link_to therapist_appointment_path(therapist_id: appointment.therapist.id, id: appointment.id), class: "text-decoration-none" do %>
         <div class="d-flex">
           <div class="d-flex mt-1 listing">
-          <h4 class="listing-elements"><%= appointment.therapist.last_name %> <%= appointment.therapist.first_name %></h4>
+          <h4 class="listing-elements"><%= appointment.id %> <%= appointment.therapist.first_name %></h4>
           <p class="listing-elements"><%= appointment.therapist.speciality %></p>
           <p class="listing-elements"><%= appointment.date_time.strftime("%d/%m/%y") %> <%= appointment.time.strftime("à %I:%M %p") %></p>
           </div>
@@ -22,7 +21,7 @@
         <%= link_to therapist_appointment_path(therapist_id: appointment.therapist.id, id: appointment.id), class: "text-decoration-none" do %>
           <div class="d-flex">
             <div class="d-flex mt-1 listing">
-              <h4 class="listing-elements"><%= appointment.user.last_name %> <%= appointment.user.first_name %></h4>
+              <h4 class="listing-elements"><%= appointment.id %> <%= appointment.user.first_name %></h4>
               <p class="listing-elements"><%= appointment.user.phone_number %></p>
               <p class="listing-elements"><%= appointment.date_time.strftime("%d/%m/%y") %> <%= appointment.time.strftime("à %I:%M %p") %></p>
             </div>
