@@ -153,7 +153,7 @@ migraine_josephine = Appointment.create!(date_time: DateTime.new(2021, 6, 19, 10
                                         therapist: roukaya,
                                         user: josephine
                                         )
-new_prescription = Prescription.create!(description: "Problème de boufée de chaleur",
+new_prescription = Prescription.create!(description: "Maux de tête trop réguliers",
 date: migraine_josephine.date_time,
 appointment: migraine_josephine
 )
@@ -241,3 +241,9 @@ feedback_souraya_3 = Feedback.create!(review_therapist: "Super bravo ! La suite 
                                         date_time: DateTime.new(2022, 3, 18, 10, 0),
                                         appointment: parole_antoine
                                         )
+ #RDV 4 JO
+ hormone_josephine = Appointment.create!(date_time: DateTime.new(2022, 3, 25, 17, 0),
+ time: Time.new(2022, 3, 25, 17, 0),
+ therapist: myriam,
+ user: josephine
+)
