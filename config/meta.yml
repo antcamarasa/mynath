@@ -1,0 +1,4 @@
+meta_product_name: "My Nath"
+meta_title: "Mynath - une application pour se soigner avec un naturopathe en ligne"
+meta_description: "My Nath est une application pour retrouver et se connecter avec un naturopathe en ligne"
+meta_image: "cover.png" # should exist in `app/assets/images/`
