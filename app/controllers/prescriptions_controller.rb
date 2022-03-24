@@ -9,7 +9,9 @@ class PrescriptionsController < ApplicationController
   end
 
   def index
-    @prescriptions = Prescription.all
+    @user = current_user
+    @appointments = Appointment.where(users_id: @user)
+    @appointments_with_prescriptions = @appointments.select { |appointment| appointment.prescriptions.any?}
     # Cloudinary::Utils.private_download_url self.cloudinary_id, self.format, attachment: true
   end
 
