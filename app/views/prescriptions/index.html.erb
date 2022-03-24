@@ -13,12 +13,15 @@
           <h4 class="listing-elements"><%= prescription.description %></h4>
           <p class="listing-elements"><%= prescription.appointment.therapist.first_name %> <%= prescription.appointment.therapist.last_name %></p>
           <p class="listing-elements">• <%= prescription.date %> •</p>
-          <div class="listing-elements" >
-            <%= link_to rails_blob_path(prescription.document, disposition: "attachment") do %>
-            <i class="fa-solid fa-download fa-download-color-vert fa-lg"></i>
-            <% end  %>
+            <div class="listing-elements" >
+              <%= link_to rails_blob_path(prescription.document, disposition: "attachment") do %>
+              <i class="fa-solid fa-download fa-download-color-vert fa-lg"></i>
+              <% end  %>
+            </div>
+        </div>
+      </div>
       <% end  %>
-    <% end %>
-  <% end  %>
+      <% end %>
+    <% end  %>
   </div>
 </div>
