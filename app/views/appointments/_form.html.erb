@@ -1,8 +1,10 @@
 <div>
 <%= simple_form_for ([@therapist, @appointment]), url: therapist_appointments_path, method: :post, remote: true do |f| %>
+  <div class="tag-calendar">
   <%= f.date_field :date_time %>
+  </div>
   <div class="radio-button">
-  <%= f.input :time, label: "Choisissez votre créneau:", as: :radio_buttons, collection: @timeframe, :label_method => :last, :value_method => :first  %>
+  <%= f.input :time, label: "Choisissez votre créneau:", as: :radio_buttons, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item', collection: @timeframe  %>
   </div>
   <%= f.button :submit, value: "Prendre votre RDV", class: "button-vert" %>
 <% end %>
