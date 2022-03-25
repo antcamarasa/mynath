@@ -210,7 +210,7 @@ time: Time.new(2022, 3, 14, 10, 0),
 therapist: souraya,
 user: antoine
 )
-new_prescription = Prescription.create!(description: "Problème de prise de parole en publique.",
+new_prescription = Prescription.create!(description: "Pb prise de parole",
 date: parole_antoine.date_time,
 appointment: parole_antoine
 )
