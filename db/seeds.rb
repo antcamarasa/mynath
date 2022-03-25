@@ -81,15 +81,15 @@ souraya = User.create!(first_name: "Souraya",
 )
 souraya.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 
-file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014175/MyNath/ifediba_agyu4p.png')
-new_therapist_3 = User.create!(first_name: "Natalie",
-  last_name: "Hernandez",
-  email: "nataliea@gmail.com",
-  password: "password",
-  therapist: true,
-  speciality: "Digestion"
-)
-new_therapist_3.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
+# file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014175/MyNath/ifediba_agyu4p.png')
+# new_therapist_3 = User.create!(first_name: "Natalie",
+#   last_name: "Hernandez",
+#   email: "nataliea@gmail.com",
+#   password: "password",
+#   therapist: true,
+#   speciality: "Digestion"
+# )
+# new_therapist_3.photo.attach(io: file, filename: 'antoine-profil-picture.jpg', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/lewagonss/image/upload/v1648014465/MyNath/basile_vzowtm.png')
 new_therapist_5 = User.create!(first_name: "Basile",
